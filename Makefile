@@ -7,7 +7,7 @@ C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))
 
 CC = clang
 
-C_FLAGS = -std=c11 -c -Wall -Wextra -ggdb -Iutil -Iview -Imodel -Ittms
+C_FLAGS = -DDEBUG -c -Wall -Wextra -ggdb -I.
 
 all: $(C_OBJECTS) 
 	@echo 链接...
