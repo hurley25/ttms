@@ -17,12 +17,15 @@
 #include <stdio.h>
 
 #include "util/logger.h"
+#include "model/info_list.h"
+#include "model/serialize.h"
 
 int main(void)
 {
     log_init(stderr);
 
-    log_debug("debug test");
+    create_origin_data();
+    dump_all_info();
 
     log_free();
 

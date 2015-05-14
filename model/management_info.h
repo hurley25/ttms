@@ -41,10 +41,10 @@ struct user_info {
 
 #define MAX_MOVIE_NAME  (50)
 #define MAX_MOVIE_DESC  (200)
-#define MAX_TIME_INFO   (40)
+#define MAX_TIME        (50)
 #define MAX_LANGUAGE    (20)
 #define MAX_COUNTRY     (30)
-#define MAX_DIRECTOR    (30)
+#define MAX_DIRECTOR    (500)
 
 // 剧目信息
 typedef
@@ -55,8 +55,8 @@ struct movie_info {
     char director[MAX_DIRECTOR];        // 导演
     char language[MAX_LANGUAGE];        // 语言
     char country[MAX_COUNTRY];          // 国家
-    char release_time[MAX_TIME_INFO];   // 上映时间
-    char info[MAX_MOVIE_DESC];          // 描述
+    char release_time[MAX_TIME];        // 上映时间
+    char desc[MAX_MOVIE_DESC];          // 描述
     struct list_head list;              // 链表结构
 } movie_info;
 
@@ -70,14 +70,12 @@ struct playhouse {
     struct list_head list;      // 链表结构
 } playhouse;
 
-#define MAX_TIME        (50)
-
 // 演出场次信息
 typedef 
 struct action_cutting {
     int movie_id;                  // 播放的电影 id
     int playhouse_id;              // 放映厅 id
-    double fare;                   // 票价
+    int fare;                      // 票价
     char start_time[MAX_TIME];     // 开始时间
     struct list_head list;         // 链表结构
 } action_cutting;
