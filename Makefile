@@ -11,7 +11,7 @@ C_FLAGS = -DDEBUG -c -Wall -Wextra -ggdb -I.
 
 all: $(C_OBJECTS) 
 	@echo 链接...
-	$(CC) $(C_OBJECTS) -o $(PROGRAM)
+	$(CC) $(C_OBJECTS) -lm -o $(PROGRAM)
 
 .c.o:
 	@echo 编译 $< ...

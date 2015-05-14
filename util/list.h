@@ -22,9 +22,9 @@ struct list_head {
     struct list_head *next, *prev;
 };
 
-#define list_entry(ptr,type,member) (type *)((char *)ptr - offsetof(type,member))
+#define list_entry(ptr,type,member) (type *)((char *)ptr - __offsetof(type,member))
 
-#define offsetof(TYPE, MEMBER) ((unsigned int) &((TYPE *)0)->MEMBER)
+#define __offsetof(TYPE, MEMBER) ((unsigned int) &((TYPE *)0)->MEMBER)
 
 #define LIST_HEAD_INIT(name) { &(name), &(name) }
 
@@ -156,8 +156,7 @@ static inline void list_cut_position(struct list_head *list,
 }
 
 static inline void __list_splice(const struct list_head *list,
-        struct list_head *prev,
-        struct list_head *next)
+        struct list_head *prev, struct list_head *next)
 {
     struct list_head *first = list->next;
     struct list_head *last = list->prev;
@@ -205,15 +204,10 @@ static inline void list_splice_tail_init(struct list_head *list,
     list_entry((ptr)->next, type, member)
 
 #define list_for_each(pos, head)                                    \
-    for (pos = (head)->next; pos != (head);                         \
-            pos = pos->next)
-
-#define __list_for_each(pos, head)                                  \
     for (pos = (head)->next; pos != (head); pos = pos->next)
 
 #define list_for_each_prev(pos, head)                               \
-    for (pos = (head)->prev; pos != (head);                         \
-            pos = pos->prev)
+    for (pos = (head)->prev; pos != (head); pos = pos->prev)
 
 #define list_for_each_safe(pos, n, head)                            \
     for (pos = (head)->next, n = pos->next; pos != (head);          \

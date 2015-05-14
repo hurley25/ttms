@@ -12,5 +12,8 @@
 *.so
 *.so.*
 
+# vim file
+*.swp
+
 # The Program files
 ms
