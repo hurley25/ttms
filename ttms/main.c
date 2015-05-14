@@ -24,6 +24,7 @@ int main(void)
 {
     log_init(stderr);
 
+    //load_all_info();
     create_origin_data();
     dump_all_info();
 
@@ -31,3 +32,4 @@ int main(void)
 
     return 0;
 }
+

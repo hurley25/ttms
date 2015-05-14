@@ -33,10 +33,10 @@ enum user_type {
 // 用户信息
 typedef
 struct user_info {
-    user_type type;                 // 用户类型
-    char username[MAX_USERNAME];    // 用户名
-    char password[MAX_PASSWORD];    // 密码
-    struct list_head list;          // 链表结构
+    user_type type;                   // 用户类型
+    char username[MAX_USERNAME+1];    // 用户名
+    char password[MAX_PASSWORD+1];    // 密码
+    struct list_head list;            // 链表结构
 } user_info;
 
 #define MAX_MOVIE_NAME  (50)
@@ -49,18 +49,16 @@ struct user_info {
 // 剧目信息
 typedef
 struct movie_info {
-    int id;                             // 剧目编号
-    char name[MAX_MOVIE_NAME];          // 片名
-    int duration;                       // 时长(min)
-    char director[MAX_DIRECTOR];        // 导演
-    char language[MAX_LANGUAGE];        // 语言
-    char country[MAX_COUNTRY];          // 国家
-    char release_time[MAX_TIME];        // 上映时间
-    char desc[MAX_MOVIE_DESC];          // 描述
-    struct list_head list;              // 链表结构
+    int id;                               // 剧目编号
+    char name[MAX_MOVIE_NAME+1];          // 片名
+    int duration;                         // 时长(min)
+    char director[MAX_DIRECTOR+1];        // 导演
+    char language[MAX_LANGUAGE+1];        // 语言
+    char country[MAX_COUNTRY+1];          // 国家
+    char release_time[MAX_TIME+1];        // 上映时间
+    char desc[MAX_MOVIE_DESC+1];          // 描述
+    struct list_head list;                // 链表结构
 } movie_info;
-
-#define SEAT_COUNT      (100)           // 默认座位数都为 100
 
 // 放映厅信息
 typedef
@@ -73,11 +71,11 @@ struct playhouse {
 // 演出场次信息
 typedef 
 struct action_cutting {
-    int movie_id;                  // 播放的电影 id
-    int playhouse_id;              // 放映厅 id
-    int fare;                      // 票价
-    char start_time[MAX_TIME];     // 开始时间
-    struct list_head list;         // 链表结构
+    int movie_id;                    // 播放的电影 id
+    int playhouse_id;                // 放映厅 id
+    int fare;                        // 票价
+    char start_time[MAX_TIME+1];     // 开始时间
+    struct list_head list;           // 链表结构
 } action_cutting;
 
 #endif  // MODEL_MANAGEMENT_INFO_H

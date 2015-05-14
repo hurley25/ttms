@@ -96,27 +96,50 @@ int dump_all_info(void)
 // 从文件载入用户信息
 int load_user_info(void)
 {
+    char *data = NULL;
+    cJSON *root = NULL;
+    cJSON *array = NULL;
+    cJSON *item = NULL;
+    int array_size = 0;
+    int i;
+
+    data = read_file(USER_DATA_FILE);
+    if (data == NULL) {
+        return -1;
+    }
+    root = cJSON_Parse(data);
+    if (!root) {
+        log_error("Parse Json Error! Error before: [%s]", cJSON_GetErrorPtr());
+        return -1;
+    }
+    array = cJSON_GetObjectItem(root, "user");
+    array_size = cJSON_GetArraySize(array);
+    
+    for (i = 0; i < array_size; ++i) {
+        item = cJSON_GetArrayItem(array, i);
+        //cJSON_GetObjectItem(item, "xxx");
+    }
+
+    free(data);
+
     return 0;
 }
 
 // 从文件载入剧目信息
 int load_movie_info(void)
 {
-
     return 0;
 }
 
 // 从文件载入演出厅信息
 int load_playhouse_info(void)
 {
-
     return 0;
 }
 
 // 从文件载入演出安排信息
 int load_action_cutting_info(void)
 {
-
     return 0;
 }
 
@@ -125,9 +148,11 @@ int dump_user_info(void)
 {
     char *data = NULL;
     cJSON *root = NULL;
+    cJSON *array = NULL;
     cJSON *item = NULL;
     
     root = cJSON_CreateObject();
+    array = cJSON_CreateArray();
 
     user_info *ui_node = NULL;
     list_for_each_entry(ui_node, &user_list_head, list) {
@@ -137,9 +162,10 @@ int dump_user_info(void)
         cJSON_AddStringToObject(item, "username", ui_node->username);
         cJSON_AddStringToObject(item, "password", ui_node->password);
 
-        cJSON_AddItemToObject(root, "user", item);
+        cJSON_AddItemToArray(array, item);
     }
 
+    cJSON_AddItemToObject(root, "user", array);
     data = cJSON_Print(root);
     cJSON_Delete(root);
 
@@ -154,9 +180,11 @@ int dump_movie_info(void)
 {
     char *data = NULL;
     cJSON *root = NULL;
+    cJSON *array = NULL;
     cJSON *item = NULL;
     
     root = cJSON_CreateObject();
+    array = cJSON_CreateArray();
 
     movie_info *mi_node = NULL;
     list_for_each_entry(mi_node, &movie_list_head, list) {
@@ -171,9 +199,10 @@ int dump_movie_info(void)
         cJSON_AddStringToObject(item, "release_time", mi_node->release_time);
         cJSON_AddStringToObject(item, "desc", mi_node->desc);
 
-        cJSON_AddItemToObject(root, "movie", item);
+        cJSON_AddItemToArray(array, item);
     }
 
+    cJSON_AddItemToObject(root, "movie", array);
     data = cJSON_Print(root);
     cJSON_Delete(root);
 
@@ -188,9 +217,11 @@ int dump_playhouse_info(void)
 {
     char *data = NULL;
     cJSON *root = NULL;
+    cJSON *array = NULL;
     cJSON *item = NULL;
     
     root = cJSON_CreateObject();
+    array = cJSON_CreateArray();
 
     playhouse *ph_node = NULL;
     list_for_each_entry(ph_node, &playhouse_list_head, list) {
@@ -199,9 +230,10 @@ int dump_playhouse_info(void)
         cJSON_AddNumberToObject(item, "id", ph_node->id);
         cJSON_AddNumberToObject(item, "seat_count", ph_node->seat_count);
 
-        cJSON_AddItemToObject(root, "playhouse", item);
+        cJSON_AddItemToArray(array, item);
     }
 
+    cJSON_AddItemToObject(root, "playhouse", array);
     data = cJSON_Print(root);
     cJSON_Delete(root);
 
@@ -216,9 +248,11 @@ int dump_action_cutting_info(void)
 {
     char *data = NULL;
     cJSON *root = NULL;
+    cJSON *array = NULL;
     cJSON *item = NULL;
     
     root = cJSON_CreateObject();
+    array = cJSON_CreateArray();
 
     action_cutting *ac_node = NULL;
     list_for_each_entry(ac_node, &action_cutting_list_head, list) {
@@ -229,9 +263,10 @@ int dump_action_cutting_info(void)
         cJSON_AddNumberToObject(item, "fare", ac_node->fare);
         cJSON_AddStringToObject(item, "start_time", ac_node->start_time);
 
-        cJSON_AddItemToObject(root, "action_cutting", item);
+        cJSON_AddItemToArray(array, item);
     }
 
+    cJSON_AddItemToObject(root, "action_cutting", array);
     data = cJSON_Print(root);
     cJSON_Delete(root);
 
