@@ -26,7 +26,7 @@ int main(void)
 
     //load_all_info();
     create_origin_data();
-    dump_all_info();
+    save_all_info();
 
     log_free();
 

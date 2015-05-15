@@ -34,21 +34,36 @@
  * 不需要其他模块知道的宏定义不要暴露在头文件里
  * 此处具体载入和输出的数据文件名只在本模块使用
  */
-// 用户信息文件
-#define USER_DATA_FILE  "user_data.dat"
-
-// 放映厅信息文件
-#define PLAYHOUSE_FILE  "playhouse_data.dat"
-
-// 剧目信息文件
-#define MOVIE_DATA_FILE  "movie_data.dat"
-
-// 场次信息文件
-#define ACTION_CUTTING_DATA_FILE  "action_cutting_data.dat"
+// 数据文件
+#define TTMS_DATA_FILE  "ttms.dat"
 
 /**
  * 仅在本文件使用的函数使用 static 限制函数作用域
  */
+// 解析用户信息
+static int parse_user_info(void);
+
+// 解析演出厅信息
+static int parse_playhouse_info(void);
+
+// 解析剧目信息
+static int parse_movie_info(void);
+
+// 解析演出安排信息
+static int pasre_action_cutting_info(void);
+
+// 序列化用户信息
+static int serialize_user_info(cJSON *root);
+
+// 序列化演出厅信息
+static int serialize_playhouse_info(cJSON *root);
+
+// 序列化剧目信息
+static int serialize_movie_info(cJSON *root);
+
+// 序列化演出安排信息
+static int serialize_action_cutting_info(cJSON *root);
+
 // 读取文件
 static char *read_file(const char *filename);
 
@@ -58,100 +73,97 @@ static int write_file(const char *filename, const char *data, size_t length);
 // 从文件载入所有信息
 int load_all_info(void)
 {
-    if (load_user_info() == -1) {
-        return -1;
-    }
-    if (load_movie_info() == -1) {
-        return -1;
-    }
-    if (load_playhouse_info() == -1) {
-        return -1;
-    }
-    if (load_action_cutting_info() == -1) {
-        return -1;
-    }
-
     return 0;
 }
 
-// 序列化所有信息到文件
-int dump_all_info(void)
+// 保存所有信息到文件
+int save_all_info(void)
 {
-    if (dump_user_info() == -1) {
-        return -1;
-    }
-    if (dump_movie_info() == -1) {
-        return -1;
-    }
-    if (dump_playhouse_info() == -1) {
-        return -1;
-    }
-    if (dump_action_cutting_info() == -1) {
-        return -1;
-    }
-
-    return 0;
-}
-
-// 从文件载入用户信息
-int load_user_info(void)
-{
+    char *tmp = NULL;
     char *data = NULL;
+    int data_len;
     cJSON *root = NULL;
-    cJSON *array = NULL;
-    cJSON *item = NULL;
-    int array_size = 0;
-    int i;
-
-    data = read_file(USER_DATA_FILE);
-    if (data == NULL) {
-        return -1;
-    }
-    root = cJSON_Parse(data);
-    if (!root) {
-        log_error("Parse Json Error! Error before: [%s]", cJSON_GetErrorPtr());
-        return -1;
-    }
-    array = cJSON_GetObjectItem(root, "user");
-    array_size = cJSON_GetArraySize(array);
     
-    for (i = 0; i < array_size; ++i) {
-        item = cJSON_GetArrayItem(array, i);
-        //cJSON_GetObjectItem(item, "xxx");
-    }
+    root = cJSON_CreateObject();
 
+    serialize_user_info(root);
+    serialize_playhouse_info(root);
+    serialize_movie_info(root);
+    serialize_action_cutting_info(root);
+
+    tmp = cJSON_Print(root);
+    cJSON_Delete(root);
+    
+    data_len = strlen(tmp);
+    data = (char *)malloc(data_len + 2); // data_len + '\n' + '\0'
+
+    strncpy(data, tmp, data_len);
+    data[data_len] = '\n';
+    data[data_len + 1] = '\0';
+
+    write_file(TTMS_DATA_FILE, data, data_len + 1);
+    free(tmp);
     free(data);
 
     return 0;
 }
 
-// 从文件载入剧目信息
-int load_movie_info(void)
+// 解析用户信息
+static int parse_user_info(void)
+{
+//    char *data = NULL;
+//    cJSON *root = NULL;
+//    cJSON *array = NULL;
+//    cJSON *item = NULL;
+//    int array_size = 0;
+//    int i;
+//
+//    data = read_file(USER_DATA_FILE);
+//    if (data == NULL) {
+//        return -1;
+//    }
+//    root = cJSON_Parse(data);
+//    if (!root) {
+//        log_error("Parse Json Error! Error before: [%s]", cJSON_GetErrorPtr());
+//        return -1;
+//    }
+//    array = cJSON_GetObjectItem(root, "user");
+//    array_size = cJSON_GetArraySize(array);
+//    
+//    for (i = 0; i < array_size; ++i) {
+//        item = cJSON_GetArrayItem(array, i);
+//        //cJSON_GetObjectItem(item, "xxx");
+//    }
+//
+//    free(data);
+
+    return 0;
+}
+
+// 解析演出厅信息
+static int parse_playhouse_info(void)
 {
     return 0;
 }
 
-// 从文件载入演出厅信息
-int load_playhouse_info(void)
+// 解析剧目信息
+static int parse_movie_info(void)
 {
     return 0;
 }
 
-// 从文件载入演出安排信息
-int load_action_cutting_info(void)
+// 解析演出安排信息
+static int parse_action_cutting_info(void)
 {
     return 0;
 }
 
-// 序列化用户信息到文件
-int dump_user_info(void)
+// 序列化用户信息
+static int serialize_user_info(cJSON *root)
 {
-    char *data = NULL;
-    cJSON *root = NULL;
     cJSON *array = NULL;
     cJSON *item = NULL;
     
-    root = cJSON_CreateObject();
     array = cJSON_CreateArray();
 
     user_info *ui_node = NULL;
@@ -166,24 +178,39 @@ int dump_user_info(void)
     }
 
     cJSON_AddItemToObject(root, "user", array);
-    data = cJSON_Print(root);
-    cJSON_Delete(root);
-
-    write_file(USER_DATA_FILE, data, strlen(data));
-    free(data);
 
     return 0;
 }
 
-// 序列化剧目信息到文件
-int dump_movie_info(void)
+// 序列化演出厅信息
+static int serialize_playhouse_info(cJSON *root)
 {
-    char *data = NULL;
-    cJSON *root = NULL;
     cJSON *array = NULL;
     cJSON *item = NULL;
     
-    root = cJSON_CreateObject();
+    array = cJSON_CreateArray();
+
+    playhouse *ph_node = NULL;
+    list_for_each_entry(ph_node, &playhouse_list_head, list) {
+
+        item = cJSON_CreateObject();
+        cJSON_AddNumberToObject(item, "id", ph_node->id);
+        cJSON_AddNumberToObject(item, "seat_count", ph_node->seat_count);
+
+        cJSON_AddItemToArray(array, item);
+    }
+
+    cJSON_AddItemToObject(root, "playhouse", array);
+
+    return 0;
+}
+
+// 序列化剧目信息
+static int serialize_movie_info(cJSON *root)
+{
+    cJSON *array = NULL;
+    cJSON *item = NULL;
+    
     array = cJSON_CreateArray();
 
     movie_info *mi_node = NULL;
@@ -203,55 +230,16 @@ int dump_movie_info(void)
     }
 
     cJSON_AddItemToObject(root, "movie", array);
-    data = cJSON_Print(root);
-    cJSON_Delete(root);
-
-    write_file(MOVIE_DATA_FILE, data, strlen(data));
-    free(data);
 
     return 0;
 }
 
-// 序列化演出厅信息到文件
-int dump_playhouse_info(void)
+// 序列化演出安排信息
+static int serialize_action_cutting_info(cJSON *root)
 {
-    char *data = NULL;
-    cJSON *root = NULL;
     cJSON *array = NULL;
     cJSON *item = NULL;
     
-    root = cJSON_CreateObject();
-    array = cJSON_CreateArray();
-
-    playhouse *ph_node = NULL;
-    list_for_each_entry(ph_node, &playhouse_list_head, list) {
-
-        item = cJSON_CreateObject();
-        cJSON_AddNumberToObject(item, "id", ph_node->id);
-        cJSON_AddNumberToObject(item, "seat_count", ph_node->seat_count);
-
-        cJSON_AddItemToArray(array, item);
-    }
-
-    cJSON_AddItemToObject(root, "playhouse", array);
-    data = cJSON_Print(root);
-    cJSON_Delete(root);
-
-    write_file(PLAYHOUSE_FILE, data, strlen(data));
-    free(data);
-
-    return 0;
-}
-
-// 序列化演出安排信息到文件
-int dump_action_cutting_info(void)
-{
-    char *data = NULL;
-    cJSON *root = NULL;
-    cJSON *array = NULL;
-    cJSON *item = NULL;
-    
-    root = cJSON_CreateObject();
     array = cJSON_CreateArray();
 
     action_cutting *ac_node = NULL;
@@ -267,11 +255,6 @@ int dump_action_cutting_info(void)
     }
 
     cJSON_AddItemToObject(root, "action_cutting", array);
-    data = cJSON_Print(root);
-    cJSON_Delete(root);
-
-    write_file(ACTION_CUTTING_DATA_FILE, data, strlen(data));
-    free(data);
 
     return 0;
 }
@@ -299,12 +282,14 @@ static char *read_file(const char *filename)
         fclose(file);
         return NULL;
     }
+    
     if (fread(data, 1, file_len, file) != file_len) {
         log_error("Read File %s Error: %s", filename, strerror(errno));
         free(data);
         fclose(file);
         return NULL;
     }
+
     fclose(file);
 
     return data;
@@ -320,11 +305,13 @@ static int write_file(const char *filename, const char *data, size_t length)
         log_error("Open File %s Error: %s", filename, strerror(errno));
         return -1;
     }
+
     if (fwrite(data, 1, length, file) != length) {
         log_error("Write File %s Error: %s", filename, strerror(errno));
         fclose(file);
         return -1;
     }
+
     fclose(file);
 
     return 0;

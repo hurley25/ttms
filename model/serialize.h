@@ -20,32 +20,8 @@
 // 从文件载入所有信息
 int load_all_info(void);
 
-// 序列化所有信息到文件
-int dump_all_info(void);
-
-// 从文件载入用户信息
-int load_user_info(void);
-
-// 从文件载入剧目信息
-int load_movie_info(void);
-
-// 从文件载入演出厅信息
-int load_playhouse_info(void);
-
-// 从文件载入演出安排信息
-int load_action_cutting_info(void);
-
-// 序列化用户信息到文件
-int dump_user_info(void);
-
-// 序列化剧目信息到文件
-int dump_movie_info(void);
-
-// 序列化演出厅信息到文件
-int dump_playhouse_info(void);
-
-// 序列化演出安排信息到文件
-int dump_action_cutting_info(void);
+// 保存所有信息到文件
+int save_all_info(void);
 
 #endif  // MODEL_SERIALIZATION_H
 
