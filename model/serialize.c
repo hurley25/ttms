@@ -25,8 +25,8 @@
 #include <string.h>
 #include <errno.h>
 
-#include "model/management_info.h"
-#include "model/info_list.h"
+#include "model/mngmnt_info.h"
+#include "model/list_crud.h"
 #include "util/cJSON.h"
 #include "util/logger.h"
 
@@ -41,16 +41,16 @@
  * 仅在本文件使用的函数使用 static 限制函数作用域
  */
 // 解析用户信息
-static int parse_user_info(void);
+static int parse_user_info(cJSON *array);
 
 // 解析演出厅信息
-static int parse_playhouse_info(void);
+static int parse_playhouse_info(cJSON *array);
 
 // 解析剧目信息
-static int parse_movie_info(void);
+static int parse_movie_info(cJSON *array);
 
 // 解析演出安排信息
-static int pasre_action_cutting_info(void);
+static int parse_action_cutting_info(cJSON *array);
 
 // 序列化用户信息
 static int serialize_user_info(cJSON *root);
@@ -73,6 +73,27 @@ static int write_file(const char *filename, const char *data, size_t length);
 // 从文件载入所有信息
 int load_all_info(void)
 {
+    char *data = NULL;
+    cJSON *root = NULL;
+
+    data = read_file(TTMS_DATA_FILE);
+    if (data == NULL) {
+        return -1;
+    }
+    root = cJSON_Parse(data);
+    if (!root) {
+        log_error("Parse Json Error! Error before: [%s]", cJSON_GetErrorPtr());
+        return -1;
+    }
+
+    parse_user_info(cJSON_GetObjectItem(root, "user"));
+    parse_playhouse_info(cJSON_GetObjectItem(root, "playhouse"));
+    parse_movie_info(cJSON_GetObjectItem(root, "movie"));
+    parse_action_cutting_info(cJSON_GetObjectItem(root, "action_cutting"));
+
+    cJSON_Delete(root);
+    free(data);
+
     return 0;
 }
 
@@ -109,52 +130,94 @@ int save_all_info(void)
 }
 
 // 解析用户信息
-static int parse_user_info(void)
+static int parse_user_info(cJSON *array)
 {
-//    char *data = NULL;
-//    cJSON *root = NULL;
-//    cJSON *array = NULL;
-//    cJSON *item = NULL;
-//    int array_size = 0;
-//    int i;
-//
-//    data = read_file(USER_DATA_FILE);
-//    if (data == NULL) {
-//        return -1;
-//    }
-//    root = cJSON_Parse(data);
-//    if (!root) {
-//        log_error("Parse Json Error! Error before: [%s]", cJSON_GetErrorPtr());
-//        return -1;
-//    }
-//    array = cJSON_GetObjectItem(root, "user");
-//    array_size = cJSON_GetArraySize(array);
-//    
-//    for (i = 0; i < array_size; ++i) {
-//        item = cJSON_GetArrayItem(array, i);
-//        //cJSON_GetObjectItem(item, "xxx");
-//    }
-//
-//    free(data);
+    cJSON *item = NULL;
+    int array_size = 0;
+    int i = 0;
+
+    array_size = cJSON_GetArraySize(array);
+
+    for (i = 0; i < array_size; ++i) {
+        item = cJSON_GetArrayItem(array, i);
+        add_user_info(
+                cJSON_GetObjectItem(item, "type")->valueint,
+                cJSON_GetObjectItem(item, "username")->valuestring,
+                cJSON_GetObjectItem(item, "password")->valuestring
+        );
+    }
 
     return 0;
 }
 
 // 解析演出厅信息
-static int parse_playhouse_info(void)
+static int parse_playhouse_info(cJSON *array)
 {
+    cJSON *item = NULL;
+    int array_size = 0;
+    int i = 0;
+
+    array_size = cJSON_GetArraySize(array);
+
+    for (i = 0; i < array_size; ++i) {
+        item = cJSON_GetArrayItem(array, i);
+        add_playhouse(
+                cJSON_GetObjectItem(item, "id")->valueint,
+                cJSON_GetObjectItem(item, "seat_count")->valueint
+        );
+    }
+
     return 0;
 }
 
 // 解析剧目信息
-static int parse_movie_info(void)
+static int parse_movie_info(cJSON *array)
 {
+    cJSON *item = NULL;
+    int array_size = 0;
+    int i = 0;
+
+    array_size = cJSON_GetArraySize(array);
+
+    for (i = 0; i < array_size; ++i) {
+        item = cJSON_GetArrayItem(array, i);
+        add_movie_info(
+                cJSON_GetObjectItem(item, "id")->valueint,
+                cJSON_GetObjectItem(item, "name")->valuestring,
+                cJSON_GetObjectItem(item, "duration")->valueint,
+                cJSON_GetObjectItem(item, "director")->valuestring,
+                cJSON_GetObjectItem(item, "language")->valuestring,
+                cJSON_GetObjectItem(item, "country")->valuestring,
+                cJSON_GetObjectItem(item, "release_time")->valuestring,
+                cJSON_GetObjectItem(item, "desc")->valuestring
+        );
+    }
+
     return 0;
 }
 
 // 解析演出安排信息
-static int parse_action_cutting_info(void)
+static int parse_action_cutting_info(cJSON *array)
 {
+    cJSON *item = NULL;
+    int array_size = 0;
+    int i = 0;
+
+    array_size = cJSON_GetArraySize(array);
+
+    for (i = 0; i < array_size; ++i) {
+        item = cJSON_GetArrayItem(array, i);
+        add_action_cutting(
+                cJSON_GetObjectItem(item, "id")->valueint,
+                cJSON_GetObjectItem(item, "movie_id")->valueint,
+                cJSON_GetObjectItem(item, "playhouse_id")->valueint,
+                cJSON_GetObjectItem(item, "fare")->valueint,
+                cJSON_GetObjectItem(item, "seat_count")->valueint,
+                cJSON_GetObjectItem(item, "remaining_seat")->valueint,
+                cJSON_GetObjectItem(item, "start_time")->valuestring
+        );
+    }
+
     return 0;
 }
 
@@ -246,9 +309,12 @@ static int serialize_action_cutting_info(cJSON *root)
     list_for_each_entry(ac_node, &action_cutting_list_head, list) {
 
         item = cJSON_CreateObject();
+        cJSON_AddNumberToObject(item, "id", ac_node->id);
         cJSON_AddNumberToObject(item, "movie_id", ac_node->movie_id);
         cJSON_AddNumberToObject(item, "playhouse_id", ac_node->playhouse_id);
         cJSON_AddNumberToObject(item, "fare", ac_node->fare);
+        cJSON_AddNumberToObject(item, "seat_count", ac_node->seat_count);
+        cJSON_AddNumberToObject(item, "remaining_seat", ac_node->remaining_seat);
         cJSON_AddStringToObject(item, "start_time", ac_node->start_time);
 
         cJSON_AddItemToArray(array, item);

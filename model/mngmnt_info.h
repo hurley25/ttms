@@ -5,7 +5,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- * management_info.h -- for management info
+ * mngmnt_info.h -- for management info
  *
  * Version: 1.0  05/13/2015 11:22:51 AM
  *
@@ -71,9 +71,12 @@ struct playhouse {
 // 演出场次信息
 typedef 
 struct action_cutting {
+    int id;                          // 场次 id
     int movie_id;                    // 播放的电影 id
     int playhouse_id;                // 放映厅 id
     int fare;                        // 票价
+    int seat_count;                  // 总出售票数
+    int remaining_seat;              // 剩余数量
     char start_time[MAX_TIME+1];     // 开始时间
     struct list_head list;           // 链表结构
 } action_cutting;

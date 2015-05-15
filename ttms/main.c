@@ -17,17 +17,23 @@
 #include <stdio.h>
 
 #include "util/logger.h"
-#include "model/info_list.h"
 #include "model/serialize.h"
+#include "model/list_crud.h"
 
 int main(void)
 {
+    // 初始化日志输出到stderr 或 "ttms.log"
     log_init(stderr);
 
-    //load_all_info();
-    create_origin_data();
+    // 从文件载入所有数据
+    load_all_info();
+    del_user_info_by_name("admin");
+//    create_origin_data();
+
+    // 保存所有数据到文件
     save_all_info();
 
+    // 关闭日志文件
     log_free();
 
     return 0;

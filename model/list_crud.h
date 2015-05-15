@@ -5,7 +5,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- * info_list.h -- info list
+ * list_crud.h -- info list crud
  *
  * Version: 1.0  05/13/2015 12:37:01 PM
  *
@@ -18,7 +18,7 @@
 #define MODEL_INFO_LIST_H
 
 #include "util/list.h"
-#include "model/management_info.h"
+#include "model/mngmnt_info.h"
 
 // 用户信息链表
 extern struct list_head user_list_head;
@@ -48,8 +48,21 @@ void add_movie_info(int id, const char *name, int duration,
 void add_movie_info_node(movie_info *mi_node);
 
 // 添加场次
-void add_action_cutting(int movie_id, int playhouse_id, double fare, const char *start_time);
+void add_action_cutting(int id, int movie_id, int playhouse_id, double fare,
+                            int seat_count, int remaining_seat, const char *start_time);
 void add_action_cutting_node(action_cutting *ac_node);
+
+// 删除用户
+int del_user_info_by_name(const char *name);
+
+// 删除放映厅
+int del_playhouse_by_id(int id);
+
+// 删除剧目
+int del_movie_info_by_id(int id);
+
+// 删除场次
+int del_action_cutting_by_id(int id);
 
 // 初始化原始数据(生成测试数据)
 void create_origin_data(void);

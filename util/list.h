@@ -213,17 +213,26 @@ static inline void list_splice_tail_init(struct list_head *list,
             pos != (head);                                          \
             pos = n, n = pos->prev)
 
-#define list_for_each_entry(pos, head, member)                      \
-    for (pos = list_entry((head)->next, typeof(*pos), member);      \
-            &pos->member != (head);                                 \
+#define list_for_each_entry(pos, head, member)                          \
+    for (pos = list_entry((head)->next, typeof(*pos), member);          \
+            &pos->member != (head);                                     \
             pos = list_entry(pos->member.next, typeof(*pos), member))
 
-#define list_for_each_entry_reverse(pos, head, member)              \
-    for (pos = list_entry((head)->prev, typeof(*pos), member);      \
-            pos->member != (head);                                  \
+#define list_for_each_entry_reverse(pos, head, member)                  \
+    for (pos = list_entry((head)->prev, typeof(*pos), member);          \
+            pos->member != (head);                                      \
             pos = list_entry(pos->member.prev, typeof(*pos), member))
 
-#define list_prepare_entry(pos, head, member)                       \
-    ((pos) ? : list_entry(head, typeof(*pos), member))
+#define list_for_each_entry_safe(pos, n, head, member)                  \
+    for (pos = list_entry((head)->next, typeof(*pos), member),          \
+            n = list_entry(pos->member.next, typeof(*pos), member);     \
+            &pos->member != (head);                                     \
+            pos = n, n = list_entry(n->member.next, typeof(*n), member))
+
+#define list_for_each_entry_reverse_safe(pos, n, head, member)          \
+    for (pos = list_entry((head)->prev, typeof(*pos), member),          \
+            n = list_entry(pos->member.next, typeof(*pos), member);     \
+            &pos->member != (head);                                     \
+            pos = n, n = list_entry(n->member.prev, typeof(*n), member))
 
 #endif  // UTIL_LIST_H

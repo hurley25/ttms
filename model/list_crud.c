@@ -5,7 +5,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- * info_list.c -- info list
+ * list_crud.c -- info list crud
  *
  * Version: 1.0  05/13/2015 01:53:20 PM
  *
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "model/info_list.h"
+#include "model/list_crud.h"
 
 // 用户信息链表
 struct list_head user_list_head = LIST_HEAD_INIT(user_list_head);
@@ -96,15 +96,19 @@ void add_movie_info_node(movie_info *mi_node)
 }
 
 // 添加场次
-void add_action_cutting(int movie_id, int playhouse_id, double fare, const char *start_time)
+void add_action_cutting(int id, int movie_id, int playhouse_id, double fare,
+                            int seat_count, int remaining_seat, const char *start_time)
 {
     action_cutting *ac_node = NULL;
     ac_node = (action_cutting *)malloc(sizeof(action_cutting));
     bzero(ac_node, sizeof(action_cutting));
 
+    ac_node->id = id;
     ac_node->movie_id = movie_id;
     ac_node->playhouse_id = playhouse_id;
     ac_node->fare = fare;
+    ac_node->seat_count = seat_count;
+    ac_node->remaining_seat = remaining_seat;
     strncpy(ac_node->start_time, start_time, MAX_TIME);
 
     list_add_tail(&(ac_node->list), &action_cutting_list_head);
@@ -113,6 +117,70 @@ void add_action_cutting(int movie_id, int playhouse_id, double fare, const char 
 void add_action_cutting_node(action_cutting *ac_node)
 {
     list_add_tail(&(ac_node->list), &action_cutting_list_head);
+}
+
+// 删除用户
+int del_user_info_by_name(const char *name)
+{ 
+    user_info *ui_node = NULL;
+    user_info *ui_node_next = NULL;
+    list_for_each_entry_safe(ui_node, ui_node_next, &user_list_head, list) {
+        if (strcmp(ui_node->username, name) == 0) {
+            list_del(&(ui_node->list));
+            free(ui_node);
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
+// 删除放映厅
+int del_playhouse_by_id(int id)
+{
+    playhouse *ph_node = NULL;
+    playhouse *ph_node_next = NULL;
+    list_for_each_entry_safe(ph_node, ph_node_next, &playhouse_list_head, list) {
+        if (ph_node->id == id) {
+            list_del(&(ph_node->list));
+            free(ph_node);
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
+// 删除剧目
+int del_movie_info_by_id(int id)
+{
+    movie_info *mi_node = NULL;
+    movie_info *mi_node_next = NULL;
+    list_for_each_entry_safe(mi_node, mi_node_next, &movie_list_head, list) {
+        if (mi_node->id == id) {
+            list_del(&(mi_node->list));
+            free(mi_node);
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
+// 删除场次
+int del_action_cutting_by_id(int id)
+{
+    action_cutting *ac_node = NULL;
+    action_cutting *ac_node_next = NULL;
+    list_for_each_entry_safe(ac_node, ac_node_next, &action_cutting_list_head, list) {
+        if (ac_node->id == id) {
+            list_del(&(ac_node->list));
+            free(ac_node);
+            return 0;
+        }
+    }
+
+    return -1;
 }
 
 // 初始化原始数据(生成测试数据)
@@ -140,9 +208,9 @@ void create_origin_data(void)
             "1967年，北京知青陈阵和杨克响应国家上山下乡的号召，从北京来到了内蒙古额仑大草原插队...");
 
     // 添加场次
-    add_action_cutting(1, 1, 50, "09:10 AM");
-    add_action_cutting(2, 2, 60, "11:00 AM");
-    add_action_cutting(3, 3, 70, "03:00 PM");
-    add_action_cutting(4, 4, 80, "05:30 PM");
+    add_action_cutting(1, 1, 1, 50, 100, 100, "09:10 AM");
+    add_action_cutting(2, 2, 2, 60, 100, 100, "11:00 AM");
+    add_action_cutting(3, 3, 3, 70, 100, 100, "03:00 PM");
+    add_action_cutting(4, 4, 4, 80, 100, 100, "05:30 PM");
 }
 
