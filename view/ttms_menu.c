@@ -83,6 +83,10 @@ void show_user_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
+    printf("\t1. 查看用户列表\n");
+    printf("\t2. 增加用户\n");
+    printf("\t3. 删除用户\n\n");
+    printf("\t0. 返回上级菜单\n\n");
 }
 
 // 显示放映厅管理菜单
@@ -91,6 +95,10 @@ void show_playhouse_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
+    printf("\t1. 查看放映厅列表\n");
+    printf("\t2. 增加放映厅\n");
+    printf("\t3. 删除放映厅\n\n");
+    printf("\t0. 返回上级菜单\n\n");
 }
 
 // 显示影片管理菜单
@@ -99,6 +107,10 @@ void show_movie_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
+    printf("\t1. 查看影片列表\n");
+    printf("\t2. 增加影片\n");
+    printf("\t3. 删除影片\n\n");
+    printf("\t0. 返回上级菜单\n\n");
 }
 
 // 显示剧目管理菜单
@@ -107,6 +119,10 @@ void show_action_cutting_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
+    printf("\t1. 查看放映剧目列表\n");
+    printf("\t2. 增加放映场次影片\n");
+    printf("\t3. 删除放映场次\n\n");
+    printf("\t0. 返回上级菜单\n\n");
 }
 
 // 显示售票管理菜单
@@ -115,5 +131,8 @@ void show_sale_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
+    printf("\t1. 查看放映剧目列表\n");
+    printf("\t2. 售票\n");
+    printf("\t0. 返回上级菜单\n\n");
 }
 
