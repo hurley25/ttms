@@ -65,6 +65,8 @@ void control_start(void)
             case TS_SHOW_USER_MENU:
                 if (user_menu_control() == -1) {
                     state = TS_SHOW_LOGIN_MENU;
+                } else {
+                    state = TS_EXIT;
                 }
                 break;
             default:
@@ -117,18 +119,22 @@ static int user_menu_control(void)
 {
     int choose = -1;
 
-    while (choose != 0) {
+    while (choose != 0 && choose != 1) {
         show_user_menu(__current_user_type);
         printf("请输入菜单功能编号: ");
         scanf("%d", &choose);
         switch (choose) {
             case 0:
+            case 1:
                 break;
             default:
                 printf("您的输入有误，请按回车键重新选择～");
                 __clear_input_buffer();
                 getchar();
         }
+    }
+    if (choose == 0) {
+        return -2;
     }
 
     return -1;

@@ -64,8 +64,7 @@ char *passwd_input(char *passwd, int buff_len)
           return passwd;
      }
 
-     while (1)
-     {
+     while (1) {
           // 如果没有按下退格键 
           if ((str = getch()) != (char)backspace_num) {
                if (i < buff_len - 1) {
@@ -90,6 +89,7 @@ char *passwd_input(char *passwd, int buff_len)
                log_error("Error to set termio noecho.n");
           }
      }
+
      return passwd;
 }
 

@@ -52,20 +52,23 @@ void show_user_menu(user_type type)
 
     switch (type) {
         case UT_ADMIN:
-            printf("\t1. 用户管理\n");
-            printf("\t2. 放映厅管理\n\n");
+            printf("\t2. 用户管理\n");
+            printf("\t3. 放映厅管理\n\n");
+            printf("\t1. 注销登陆\n");
             printf("\t0. 退出系统\n\n");
             break;
         case UT_MANAGER:
-            printf("\t2. 放映厅管理\n");
-            printf("\t3. 影片管理\n");
-            printf("\t4. 剧目管理\n");
-            printf("\t5. 售票管理\n");
-            printf("\t6. 销售额查看\n\n");
+            printf("\t3. 放映厅管理\n");
+            printf("\t4. 影片管理\n");
+            printf("\t5. 剧目管理\n");
+            printf("\t6. 售票管理\n");
+            printf("\t7. 销售额查看\n\n");
+            printf("\t1. 注销登陆\n");
             printf("\t0. 退出系统\n\n");
             break;
         case UT_CLERK:
-            printf("\t5. 售票管理\n\n");
+            printf("\t6. 售票管理\n\n");
+            printf("\t1. 注销登陆\n");
             printf("\t0. 退出系统\n\n");
             break;
         case UT_ERROR:
