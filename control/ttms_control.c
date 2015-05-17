@@ -197,8 +197,13 @@ static void user_mng_menu_control(void)
             // 退出
             case 0:
                 break;
+            // 查看用户列表
+            case 1:
+                break;
+            // 增加用户
             case 2:
                 break;
+            // 删除用户
             case 3:
                 break;
             default:
@@ -222,8 +227,13 @@ static void playhouse_mng_menu_control(void)
             // 退出
             case 0:
                 break;
+            // 查看放映厅列表
+            case 1:
+                break;
+            // 增加放映厅
             case 2:
                 break;
+            // 删除放映厅
             case 3:
                 break;
             default:
@@ -247,8 +257,13 @@ static void movie_mng_menu_control(void)
             // 退出
             case 0:
                 break;
+            // 查看影片列表
+            case 1:
+                break;
+            // 增加影片
             case 2:
                 break;
+            // 删除影片
             case 3:
                 break;
             default:
@@ -271,9 +286,14 @@ static void action_cutting_mng_menu_control(void)
         switch (choose) {
             // 退出
             case 0:
+            // 查看放映剧目列表
                 break;
+            case 1:
+                break;
+            // 增加放映场次影片
             case 2:
                 break;
+            // 删除放映场次
             case 3:
                 break;
             default:
@@ -297,9 +317,11 @@ static void sale_mng_menu_control(void)
             // 退出
             case 0:
                 break;
-            case 2:
+            // 查看放映剧目列表
+            case 1:
                 break;
-            case 3:
+            // 售票
+            case 2:
                 break;
             default:
                 printf("您的输入有误，请按回车键重新选择～");
