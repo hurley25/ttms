@@ -120,7 +120,7 @@ void add_action_cutting_node(action_cutting *ac_node)
 }
 
 // 删除用户
-int del_user_info_by_name(const char *name)
+void del_user_info_by_name(const char *name)
 { 
     user_info *ui_node = NULL;
     user_info *ui_node_next = NULL;
@@ -128,15 +128,12 @@ int del_user_info_by_name(const char *name)
         if (strcmp(ui_node->username, name) == 0) {
             list_del(&(ui_node->list));
             free(ui_node);
-            return 0;
         }
     }
-
-    return -1;
 }
 
 // 删除放映厅
-int del_playhouse_by_id(int id)
+void del_playhouse_by_id(int id)
 {
     playhouse *ph_node = NULL;
     playhouse *ph_node_next = NULL;
@@ -144,15 +141,12 @@ int del_playhouse_by_id(int id)
         if (ph_node->id == id) {
             list_del(&(ph_node->list));
             free(ph_node);
-            return 0;
         }
     }
-
-    return -1;
 }
 
 // 删除剧目
-int del_movie_info_by_id(int id)
+void del_movie_info_by_id(int id)
 {
     movie_info *mi_node = NULL;
     movie_info *mi_node_next = NULL;
@@ -160,15 +154,12 @@ int del_movie_info_by_id(int id)
         if (mi_node->id == id) {
             list_del(&(mi_node->list));
             free(mi_node);
-            return 0;
         }
     }
-
-    return -1;
 }
 
 // 删除场次
-int del_action_cutting_by_id(int id)
+void del_action_cutting_by_id(int id)
 {
     action_cutting *ac_node = NULL;
     action_cutting *ac_node_next = NULL;
@@ -176,11 +167,48 @@ int del_action_cutting_by_id(int id)
         if (ac_node->id == id) {
             list_del(&(ac_node->list));
             free(ac_node);
-            return 0;
         }
     }
+}
 
-    return -1;
+// 遍历用户信息(对每个元素调用参数给出的回调函数，回调函数可删除该元素)
+void for_range_user_info(void (*func)(user_info *))
+{
+    user_info *ui_node = NULL;
+    user_info *ui_node_next = NULL;
+    list_for_each_entry_safe(ui_node, ui_node_next, &user_list_head, list) {
+        func(ui_node);
+    }
+}
+
+// 遍历放映厅信息
+void for_range_playhouse(void (*func)(playhouse *))
+{
+    playhouse *ph_node = NULL;
+    playhouse *ph_node_next = NULL;
+    list_for_each_entry_safe(ph_node, ph_node_next, &playhouse_list_head, list) {
+        func(ph_node);
+    }
+}
+
+// 遍历剧目信息
+void for_range_movie_info(void (*func)(movie_info *))
+{
+    movie_info *mi_node = NULL;
+    movie_info *mi_node_next = NULL;
+    list_for_each_entry_safe(mi_node, mi_node_next, &movie_list_head, list) {
+        func(mi_node);
+    }
+}
+
+// 遍历场次信息
+void for_range_action_cutting(void (*func)(action_cutting *))
+{
+    action_cutting *ac_node = NULL;
+    action_cutting *ac_node_next = NULL;
+    list_for_each_entry_safe(ac_node, ac_node_next, &action_cutting_list_head, list) {
+        func(ac_node);
+    }
 }
 
 // 初始化原始数据(生成测试数据)
