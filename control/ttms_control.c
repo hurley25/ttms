@@ -187,31 +187,126 @@ static int user_menu_control(void)
 // 用户管理菜单控制
 static void user_mng_menu_control(void)
 {
-    show_user_mng_menu();
+    int choose = -1;
+
+    while (choose != 0) {
+        show_user_mng_menu();
+        printf("请输入菜单功能编号: ");
+        scanf("%d", &choose);
+        switch (choose) {
+            // 退出
+            case 0:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                printf("您的输入有误，请按回车键重新选择～");
+                __clear_input_buffer();
+                getchar();
+        }
+    }
 }
 
 // 放映厅管理菜单控制
 static void playhouse_mng_menu_control(void)
 {
-    show_playhouse_mng_menu();
+    int choose = -1;
+
+    while (choose != 0) {
+        show_playhouse_mng_menu();
+        printf("请输入菜单功能编号: ");
+        scanf("%d", &choose);
+        switch (choose) {
+            // 退出
+            case 0:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                printf("您的输入有误，请按回车键重新选择～");
+                __clear_input_buffer();
+                getchar();
+        }
+    }
 }
 
 // 影片管理菜单控制
 static void movie_mng_menu_control(void)
 {
-    show_movie_mng_menu();
+    int choose = -1;
+
+    while (choose != 0) {
+        show_movie_mng_menu();
+        printf("请输入菜单功能编号: ");
+        scanf("%d", &choose);
+        switch (choose) {
+            // 退出
+            case 0:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                printf("您的输入有误，请按回车键重新选择～");
+                __clear_input_buffer();
+                getchar();
+        }
+    }
 }
 
 // 剧目管理菜单控制
 static void action_cutting_mng_menu_control(void)
 {
-    show_action_cutting_mng_menu();
+    int choose = -1;
+
+    while (choose != 0) {
+        show_action_cutting_mng_menu();
+        printf("请输入菜单功能编号: ");
+        scanf("%d", &choose);
+        switch (choose) {
+            // 退出
+            case 0:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                printf("您的输入有误，请按回车键重新选择～");
+                __clear_input_buffer();
+                getchar();
+        }
+    }
 }
 
 // 售票管理菜单控制
 static void sale_mng_menu_control(void)
 {
-    show_sale_mng_menu();
+    int choose = -1;
+
+    while (choose != 0) {
+        show_sale_mng_menu();
+        printf("请输入菜单功能编号: ");
+        scanf("%d", &choose);
+        switch (choose) {
+            // 退出
+            case 0:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                printf("您的输入有误，请按回车键重新选择～");
+                __clear_input_buffer();
+                getchar();
+        }
+    }
 }
 
 // 销售额查看
