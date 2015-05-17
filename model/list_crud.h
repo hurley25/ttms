@@ -53,7 +53,7 @@ void add_action_cutting(int id, int movie_id, int playhouse_id, double fare,
 void add_action_cutting_node(action_cutting *ac_node);
 
 // 删除用户
-void del_user_info_by_name(const char *name);
+void del_user_info_by_name(const char *username);
 
 // 删除放映厅
 void del_playhouse_by_id(int id);
@@ -86,6 +86,9 @@ void for_range_action_cutting(void (*func)(action_cutting *));
 
 // 初始化原始数据(生成测试数据)
 void create_origin_data(void);
+
+// 检查用户密码
+user_type check_user_password(const char *username, const char *password);
 
 #endif  // MODEL_INFO_LIST_H
 

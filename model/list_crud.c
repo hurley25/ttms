@@ -120,12 +120,12 @@ void add_action_cutting_node(action_cutting *ac_node)
 }
 
 // 删除用户
-void del_user_info_by_name(const char *name)
+void del_user_info_by_name(const char *username)
 { 
     user_info *ui_node = NULL;
     user_info *ui_node_next = NULL;
     list_for_each_entry_safe(ui_node, ui_node_next, &user_list_head, list) {
-        if (strcmp(ui_node->username, name) == 0) {
+        if (strcmp(ui_node->username, username) == 0) {
             list_del(&(ui_node->list));
             free(ui_node);
         }
@@ -215,9 +215,9 @@ void for_range_action_cutting(void (*func)(action_cutting *))
 void create_origin_data(void)
 {
     // 添加用户
-    add_user_info(ADMIN, "admin", "111");
-    add_user_info(MANAGER, "manager", "222");
-    add_user_info(CLERK, "clerk", "333");
+    add_user_info(UT_ADMIN, "admin", "111");
+    add_user_info(UT_MANAGER, "manager", "222");
+    add_user_info(UT_CLERK, "clerk", "333");
 
     // 添加放映厅
     add_playhouse(1, 100);
@@ -240,5 +240,19 @@ void create_origin_data(void)
     add_action_cutting(2, 2, 2, 60, 100, 100, "11:00 AM");
     add_action_cutting(3, 3, 3, 70, 100, 100, "03:00 PM");
     add_action_cutting(4, 4, 4, 80, 100, 100, "05:30 PM");
+}
+
+// 检查用户密码
+user_type check_user_password(const char *username, const char *password)
+{
+    user_info *ui_node = NULL;
+    user_info *ui_node_next = NULL;
+    list_for_each_entry_safe(ui_node, ui_node_next, &user_list_head, list) {
+        if (strcmp(ui_node->username, username) == 0 && strcmp(ui_node->password, password) == 0) {
+            return ui_node->type;
+        }
+    }
+
+    return UT_ERROR;
 }
 

@@ -22,10 +22,19 @@
 // 用户类型(控制用户权限)
 typedef
 enum user_type {
-    ADMIN = 0,      // 系统管理员
-    MANAGER = 1,    // 经理
-    CLERK = 2       // 售票员
+    UT_ERROR = 0,      // 错误类型
+    UT_ADMIN = 1,      // 系统管理员
+    UT_MANAGER = 2,    // 经理
+    UT_CLERK = 3       // 售票员
 } user_type;
+
+// 懒得在 .c 文件里写了，这里用 static 让链接器用各文件局部的算了
+static char *user_type_name[] = {
+        "ERROR USER",      // 0
+        "系统管理员",      // 1
+        "经理",            // 2
+        "售票员"           // 3
+};
 
 #define MAX_USERNAME  (16)  // 最长用户名
 #define MAX_PASSWORD  (16)  // 最长密码

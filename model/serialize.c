@@ -41,34 +41,34 @@
  * 仅在本文件使用的函数使用 static 限制函数作用域
  */
 // 解析用户信息
-static int parse_user_info(cJSON *array);
+static int __parse_user_info(cJSON *array);
 
 // 解析演出厅信息
-static int parse_playhouse_info(cJSON *array);
+static int __parse_playhouse_info(cJSON *array);
 
 // 解析剧目信息
-static int parse_movie_info(cJSON *array);
+static int __parse_movie_info(cJSON *array);
 
 // 解析演出安排信息
-static int parse_action_cutting_info(cJSON *array);
+static int __parse_action_cutting_info(cJSON *array);
 
 // 序列化用户信息
-static int serialize_user_info(cJSON *root);
+static int __serialize_user_info(cJSON *root);
 
 // 序列化演出厅信息
-static int serialize_playhouse_info(cJSON *root);
+static int __serialize_playhouse_info(cJSON *root);
 
 // 序列化剧目信息
-static int serialize_movie_info(cJSON *root);
+static int __serialize_movie_info(cJSON *root);
 
 // 序列化演出安排信息
-static int serialize_action_cutting_info(cJSON *root);
+static int __serialize_action_cutting_info(cJSON *root);
 
 // 读取文件
-static char *read_file(const char *filename);
+static char *__read_file(const char *filename);
 
 // 写入文件
-static int write_file(const char *filename, const char *data, size_t length);
+static int __write_file(const char *filename, const char *data, size_t length);
 
 // 从文件载入所有信息
 int load_all_info(void)
@@ -76,7 +76,7 @@ int load_all_info(void)
     char *data = NULL;
     cJSON *root = NULL;
 
-    data = read_file(TTMS_DATA_FILE);
+    data = __read_file(TTMS_DATA_FILE);
     if (data == NULL) {
         return -1;
     }
@@ -86,10 +86,10 @@ int load_all_info(void)
         return -1;
     }
 
-    parse_user_info(cJSON_GetObjectItem(root, "user"));
-    parse_playhouse_info(cJSON_GetObjectItem(root, "playhouse"));
-    parse_movie_info(cJSON_GetObjectItem(root, "movie"));
-    parse_action_cutting_info(cJSON_GetObjectItem(root, "action_cutting"));
+    __parse_user_info(cJSON_GetObjectItem(root, "user"));
+    __parse_playhouse_info(cJSON_GetObjectItem(root, "playhouse"));
+    __parse_movie_info(cJSON_GetObjectItem(root, "movie"));
+    __parse_action_cutting_info(cJSON_GetObjectItem(root, "action_cutting"));
 
     cJSON_Delete(root);
     free(data);
@@ -107,10 +107,10 @@ int save_all_info(void)
     
     root = cJSON_CreateObject();
 
-    serialize_user_info(root);
-    serialize_playhouse_info(root);
-    serialize_movie_info(root);
-    serialize_action_cutting_info(root);
+    __serialize_user_info(root);
+    __serialize_playhouse_info(root);
+    __serialize_movie_info(root);
+    __serialize_action_cutting_info(root);
 
     tmp = cJSON_Print(root);
     cJSON_Delete(root);
@@ -122,7 +122,7 @@ int save_all_info(void)
     data[data_len] = '\n';
     data[data_len + 1] = '\0';
 
-    write_file(TTMS_DATA_FILE, data, data_len + 1);
+    __write_file(TTMS_DATA_FILE, data, data_len + 1);
     free(tmp);
     free(data);
 
@@ -130,7 +130,7 @@ int save_all_info(void)
 }
 
 // 解析用户信息
-static int parse_user_info(cJSON *array)
+static int __parse_user_info(cJSON *array)
 {
     cJSON *item = NULL;
     int array_size = 0;
@@ -151,7 +151,7 @@ static int parse_user_info(cJSON *array)
 }
 
 // 解析演出厅信息
-static int parse_playhouse_info(cJSON *array)
+static int __parse_playhouse_info(cJSON *array)
 {
     cJSON *item = NULL;
     int array_size = 0;
@@ -171,7 +171,7 @@ static int parse_playhouse_info(cJSON *array)
 }
 
 // 解析剧目信息
-static int parse_movie_info(cJSON *array)
+static int __parse_movie_info(cJSON *array)
 {
     cJSON *item = NULL;
     int array_size = 0;
@@ -197,7 +197,7 @@ static int parse_movie_info(cJSON *array)
 }
 
 // 解析演出安排信息
-static int parse_action_cutting_info(cJSON *array)
+static int __parse_action_cutting_info(cJSON *array)
 {
     cJSON *item = NULL;
     int array_size = 0;
@@ -222,7 +222,7 @@ static int parse_action_cutting_info(cJSON *array)
 }
 
 // 序列化用户信息
-static int serialize_user_info(cJSON *root)
+static int __serialize_user_info(cJSON *root)
 {
     cJSON *array = NULL;
     cJSON *item = NULL;
@@ -246,7 +246,7 @@ static int serialize_user_info(cJSON *root)
 }
 
 // 序列化演出厅信息
-static int serialize_playhouse_info(cJSON *root)
+static int __serialize_playhouse_info(cJSON *root)
 {
     cJSON *array = NULL;
     cJSON *item = NULL;
@@ -269,7 +269,7 @@ static int serialize_playhouse_info(cJSON *root)
 }
 
 // 序列化剧目信息
-static int serialize_movie_info(cJSON *root)
+static int __serialize_movie_info(cJSON *root)
 {
     cJSON *array = NULL;
     cJSON *item = NULL;
@@ -298,7 +298,7 @@ static int serialize_movie_info(cJSON *root)
 }
 
 // 序列化演出安排信息
-static int serialize_action_cutting_info(cJSON *root)
+static int __serialize_action_cutting_info(cJSON *root)
 {
     cJSON *array = NULL;
     cJSON *item = NULL;
@@ -326,7 +326,7 @@ static int serialize_action_cutting_info(cJSON *root)
 }
 
 // 读取文件
-static char *read_file(const char *filename)
+static char *__read_file(const char *filename)
 {
     FILE *file;
     size_t file_len;
@@ -362,7 +362,7 @@ static char *read_file(const char *filename)
 }
 
 // 写入文件
-static int write_file(const char *filename, const char *data, size_t length)
+static int __write_file(const char *filename, const char *data, size_t length)
 {
     FILE *file;
 	

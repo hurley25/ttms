@@ -18,7 +18,7 @@
 
 #include "util/logger.h"
 #include "model/serialize.h"
-#include "model/list_crud.h"
+#include "control/ttms_control.h"
 
 int main(void)
 {
@@ -27,8 +27,9 @@ int main(void)
 
     // 从文件载入所有数据
     load_all_info();
-    del_user_info_by_name("admin");
-//    create_origin_data();
+
+    // 进入程序控制循环
+    control_start();
 
     // 保存所有数据到文件
     save_all_info();

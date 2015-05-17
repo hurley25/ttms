@@ -1,0 +1,376 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC = clang$/;"	m
+CONTROL_TTMS_CONTROL_H	control/ttms_control.h	18;"	d
+C_FLAGS	Makefile	/^C_FLAGS = -DDEBUG -c -Wall -Wextra -ggdb -I.$/;"	m
+C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
+C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
+INIT_LIST_HEAD	util/list.h	/^static inline void INIT_LIST_HEAD(struct list_head *list)$/;"	f	signature:(struct list_head *list)
+LIST_HEAD	util/list.h	31;"	d
+LIST_HEAD_INIT	util/list.h	29;"	d
+MAX_COUNTRY	model/mngmnt_info.h	47;"	d
+MAX_DIRECTOR	model/mngmnt_info.h	48;"	d
+MAX_LANGUAGE	model/mngmnt_info.h	46;"	d
+MAX_MOVIE_DESC	model/mngmnt_info.h	44;"	d
+MAX_MOVIE_NAME	model/mngmnt_info.h	43;"	d
+MAX_PASSWORD	model/mngmnt_info.h	32;"	d
+MAX_TIME	model/mngmnt_info.h	45;"	d
+MAX_USERNAME	model/mngmnt_info.h	31;"	d
+MODEL_INFO_LIST_H	model/list_crud.h	18;"	d
+MODEL_MANAGEMENT_INFO_H	model/mngmnt_info.h	18;"	d
+MODEL_SERIALIZATION_H	model/serialize.h	18;"	d
+PROGRAM	Makefile	/^PROGRAM = ms$/;"	m
+SHOW_MENU_TOP	view/ttms_menu.c	22;"	d	file:
+TS_EXIT	control/ttms_control.c	/^    TS_EXIT$/;"	e	enum:ttms_state	file:
+TS_SHOW_ACTION_CUTTING_MENU	control/ttms_control.c	/^    TS_SHOW_ACTION_CUTTING_MENU,$/;"	e	enum:ttms_state	file:
+TS_SHOW_LOGIN_MENU	control/ttms_control.c	/^    TS_SHOW_LOGIN_MENU,$/;"	e	enum:ttms_state	file:
+TS_SHOW_MOVIE_MENU	control/ttms_control.c	/^    TS_SHOW_MOVIE_MENU,$/;"	e	enum:ttms_state	file:
+TS_SHOW_PLAYHOUSE_MENU	control/ttms_control.c	/^    TS_SHOW_PLAYHOUSE_MENU,$/;"	e	enum:ttms_state	file:
+TS_SHOW_USER_MENU	control/ttms_control.c	/^    TS_SHOW_USER_MENU,$/;"	e	enum:ttms_state	file:
+TTMS_DATA_FILE	model/serialize.c	38;"	d	file:
+UTIL_LIST_H	util/list.h	18;"	d
+UTIL_LOGGER_H	util/logger.h	18;"	d
+UT_ADMIN	model/mngmnt_info.h	/^    UT_ADMIN = 1,      \/\/ 系统管理员$/;"	e	enum:user_type
+UT_CLERK	model/mngmnt_info.h	/^    UT_CLERK = 3       \/\/ 售票员$/;"	e	enum:user_type
+UT_ERROR	model/mngmnt_info.h	/^    UT_ERROR = 0,      \/\/ 错误类型$/;"	e	enum:user_type
+UT_MANAGER	model/mngmnt_info.h	/^    UT_MANAGER = 2,    \/\/ 经理$/;"	e	enum:user_type
+VIEW_TTMS_MENU_H	view/ttms_menu.h	18;"	d
+__LOG_LINE_MAX	util/logger.h	23;"	d
+__anon1::buffer	util/cJSON.c	/^    char *buffer;$/;"	m	struct:__anon1	file:	access:public
+__anon1::length	util/cJSON.c	/^    int length;$/;"	m	struct:__anon1	file:	access:public
+__anon1::offset	util/cJSON.c	/^    int offset;$/;"	m	struct:__anon1	file:	access:public
+__clear_input_buffer	control/ttms_control.c	/^static void __clear_input_buffer(void)$/;"	f	file:	signature:(void)
+__console_clear	view/ttms_menu.c	/^static void __console_clear(void)$/;"	f	file:	signature:(void)
+__current_user_type	control/ttms_control.c	/^static user_type __current_user_type = UT_ERROR;$/;"	v	file:
+__list_add	util/list.h	/^static inline void __list_add(struct list_head *new,$/;"	f	signature:(struct list_head *new, struct list_head *prev, struct list_head *next)
+__list_cut_position	util/list.h	/^static inline void __list_cut_position(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head, struct list_head *entry)
+__list_del	util/list.h	/^static inline void __list_del(struct list_head * prev, struct list_head * next)$/;"	f	signature:(struct list_head * prev, struct list_head * next)
+__list_splice	util/list.h	/^static inline void __list_splice(const struct list_head *list,$/;"	f	signature:(const struct list_head *list, struct list_head *prev, struct list_head *next)
+__logger	util/logger.h	37;"	d
+__logger_arg	util/logger.h	/^static inline void __logger_arg(FILE *fp, const char *string, ...)$/;"	f	signature:(FILE *fp, const char *string, ...)
+__logger_fp	util/logger.c	/^FILE *__logger_fp = NULL;$/;"	v
+__offsetof	util/list.h	27;"	d
+__parse_action_cutting_info	model/serialize.c	/^static int __parse_action_cutting_info(cJSON *array)$/;"	f	file:	signature:(cJSON *array)
+__parse_action_cutting_info	model/serialize.c	/^static int __parse_action_cutting_info(cJSON *array);$/;"	p	file:	signature:(cJSON *array)
+__parse_movie_info	model/serialize.c	/^static int __parse_movie_info(cJSON *array)$/;"	f	file:	signature:(cJSON *array)
+__parse_movie_info	model/serialize.c	/^static int __parse_movie_info(cJSON *array);$/;"	p	file:	signature:(cJSON *array)
+__parse_playhouse_info	model/serialize.c	/^static int __parse_playhouse_info(cJSON *array)$/;"	f	file:	signature:(cJSON *array)
+__parse_playhouse_info	model/serialize.c	/^static int __parse_playhouse_info(cJSON *array);$/;"	p	file:	signature:(cJSON *array)
+__parse_user_info	model/serialize.c	/^static int __parse_user_info(cJSON *array)$/;"	f	file:	signature:(cJSON *array)
+__parse_user_info	model/serialize.c	/^static int __parse_user_info(cJSON *array);$/;"	p	file:	signature:(cJSON *array)
+__read_file	model/serialize.c	/^static char *__read_file(const char *filename)$/;"	f	file:	signature:(const char *filename)
+__read_file	model/serialize.c	/^static char *__read_file(const char *filename);$/;"	p	file:	signature:(const char *filename)
+__serialize_action_cutting_info	model/serialize.c	/^static int __serialize_action_cutting_info(cJSON *root)$/;"	f	file:	signature:(cJSON *root)
+__serialize_action_cutting_info	model/serialize.c	/^static int __serialize_action_cutting_info(cJSON *root);$/;"	p	file:	signature:(cJSON *root)
+__serialize_movie_info	model/serialize.c	/^static int __serialize_movie_info(cJSON *root)$/;"	f	file:	signature:(cJSON *root)
+__serialize_movie_info	model/serialize.c	/^static int __serialize_movie_info(cJSON *root);$/;"	p	file:	signature:(cJSON *root)
+__serialize_playhouse_info	model/serialize.c	/^static int __serialize_playhouse_info(cJSON *root)$/;"	f	file:	signature:(cJSON *root)
+__serialize_playhouse_info	model/serialize.c	/^static int __serialize_playhouse_info(cJSON *root);$/;"	p	file:	signature:(cJSON *root)
+__serialize_user_info	model/serialize.c	/^static int __serialize_user_info(cJSON *root)$/;"	f	file:	signature:(cJSON *root)
+__serialize_user_info	model/serialize.c	/^static int __serialize_user_info(cJSON *root);$/;"	p	file:	signature:(cJSON *root)
+__write_file	model/serialize.c	/^static int __write_file(const char *filename, const char *data, size_t length)$/;"	f	file:	signature:(const char *filename, const char *data, size_t length)
+__write_file	model/serialize.c	/^static int __write_file(const char *filename, const char *data, size_t length);$/;"	p	file:	signature:(const char *filename, const char *data, size_t length)
+action_cutting	model/mngmnt_info.h	/^struct action_cutting {$/;"	s
+action_cutting	model/mngmnt_info.h	/^} action_cutting;$/;"	t	typeref:struct:action_cutting
+action_cutting::fare	model/mngmnt_info.h	/^    int fare;                        \/\/ 票价$/;"	m	struct:action_cutting	access:public
+action_cutting::id	model/mngmnt_info.h	/^    int id;                          \/\/ 场次 id$/;"	m	struct:action_cutting	access:public
+action_cutting::list	model/mngmnt_info.h	/^    struct list_head list;           \/\/ 链表结构$/;"	m	struct:action_cutting	typeref:struct:action_cutting::list_head	access:public
+action_cutting::movie_id	model/mngmnt_info.h	/^    int movie_id;                    \/\/ 播放的电影 id$/;"	m	struct:action_cutting	access:public
+action_cutting::playhouse_id	model/mngmnt_info.h	/^    int playhouse_id;                \/\/ 放映厅 id$/;"	m	struct:action_cutting	access:public
+action_cutting::remaining_seat	model/mngmnt_info.h	/^    int remaining_seat;              \/\/ 剩余数量$/;"	m	struct:action_cutting	access:public
+action_cutting::seat_count	model/mngmnt_info.h	/^    int seat_count;                  \/\/ 总出售票数$/;"	m	struct:action_cutting	access:public
+action_cutting::start_time	model/mngmnt_info.h	/^    char start_time[MAX_TIME+1];     \/\/ 开始时间$/;"	m	struct:action_cutting	access:public
+action_cutting_list_head	model/list_crud.c	/^struct list_head action_cutting_list_head = LIST_HEAD_INIT(action_cutting_list_head);$/;"	v	typeref:struct:list_head
+add_action_cutting	model/list_crud.c	/^void add_action_cutting(int id, int movie_id, int playhouse_id, double fare,$/;"	f	signature:(int id, int movie_id, int playhouse_id, double fare, int seat_count, int remaining_seat, const char *start_time)
+add_action_cutting	model/list_crud.h	/^void add_action_cutting(int id, int movie_id, int playhouse_id, double fare,$/;"	p	signature:(int id, int movie_id, int playhouse_id, double fare, int seat_count, int remaining_seat, const char *start_time)
+add_action_cutting_node	model/list_crud.c	/^void add_action_cutting_node(action_cutting *ac_node)$/;"	f	signature:(action_cutting *ac_node)
+add_action_cutting_node	model/list_crud.h	/^void add_action_cutting_node(action_cutting *ac_node);$/;"	p	signature:(action_cutting *ac_node)
+add_movie_info	model/list_crud.c	/^void add_movie_info(int id, const char *name, int duration,$/;"	f	signature:(int id, const char *name, int duration, const char *director, const char *language, const char *country, const char *release_time, const char *desc)
+add_movie_info	model/list_crud.h	/^void add_movie_info(int id, const char *name, int duration,$/;"	p	signature:(int id, const char *name, int duration, const char *director, const char *language, const char *country, const char *release_time, const char *desc)
+add_movie_info_node	model/list_crud.c	/^void add_movie_info_node(movie_info *mi_node)$/;"	f	signature:(movie_info *mi_node)
+add_movie_info_node	model/list_crud.h	/^void add_movie_info_node(movie_info *mi_node);$/;"	p	signature:(movie_info *mi_node)
+add_playhouse	model/list_crud.c	/^void add_playhouse(int id, int seat_count)$/;"	f	signature:(int id, int seat_count)
+add_playhouse	model/list_crud.h	/^void add_playhouse(int id, int seat_count);$/;"	p	signature:(int id, int seat_count)
+add_playhouse_node	model/list_crud.c	/^void add_playhouse_node(playhouse *ph_node)$/;"	f	signature:(playhouse *ph_node)
+add_playhouse_node	model/list_crud.h	/^void add_playhouse_node(playhouse *ph_node);$/;"	p	signature:(playhouse *ph_node)
+add_user_info	model/list_crud.c	/^void add_user_info(user_type type, const char *username, const char *password)$/;"	f	signature:(user_type type, const char *username, const char *password)
+add_user_info	model/list_crud.h	/^void add_user_info(user_type type, const char *username, const char *password);$/;"	p	signature:(user_type type, const char *username, const char *password)
+add_user_info_node	model/list_crud.c	/^void add_user_info_node(user_info *ui_node)$/;"	f	signature:(user_info *ui_node)
+add_user_info_node	model/list_crud.h	/^void add_user_info_node(user_info *ui_node);$/;"	p	signature:(user_info *ui_node)
+buffer	util/cJSON.c	/^    char *buffer;$/;"	m	struct:__anon1	file:	access:public
+cJSON	util/cJSON.h	/^typedef struct cJSON {$/;"	s
+cJSON	util/cJSON.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
+cJSON::child	util/cJSON.h	/^    struct cJSON *child;	\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON	access:public
+cJSON::next	util/cJSON.h	/^    struct cJSON *next, *prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON	access:public
+cJSON::prev	util/cJSON.h	/^    struct cJSON *next, *prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::	access:public
+cJSON::string	util/cJSON.h	/^    char *string;		\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON	access:public
+cJSON::type	util/cJSON.h	/^    int type;		\/* The type of the item, as above. *\/$/;"	m	struct:cJSON	access:public
+cJSON::valuedouble	util/cJSON.h	/^    double valuedouble;	\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON	access:public
+cJSON::valueint	util/cJSON.h	/^    int valueint;		\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON	access:public
+cJSON::valuestring	util/cJSON.h	/^    char *valuestring;	\/* The item's string, if type==cJSON_String *\/$/;"	m	struct:cJSON	access:public
+cJSON_AddBoolToObject	util/cJSON.h	144;"	d
+cJSON_AddFalseToObject	util/cJSON.h	143;"	d
+cJSON_AddItemReferenceToArray	util/cJSON.c	/^void cJSON_AddItemReferenceToArray(cJSON * array, cJSON * item)$/;"	f	signature:(cJSON * array, cJSON * item)
+cJSON_AddItemReferenceToArray	util/cJSON.h	/^extern void cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item);$/;"	p	signature:(cJSON *array, cJSON *item)
+cJSON_AddItemReferenceToObject	util/cJSON.c	/^void cJSON_AddItemReferenceToObject(cJSON * object, const char *string,$/;"	f	signature:(cJSON * object, const char *string, cJSON * item)
+cJSON_AddItemReferenceToObject	util/cJSON.h	/^extern void cJSON_AddItemReferenceToObject(cJSON *object, const char *string, cJSON *item);$/;"	p	signature:(cJSON *object, const char *string, cJSON *item)
+cJSON_AddItemToArray	util/cJSON.c	/^void cJSON_AddItemToArray(cJSON * array, cJSON * item)$/;"	f	signature:(cJSON * array, cJSON * item)
+cJSON_AddItemToArray	util/cJSON.h	/^extern void cJSON_AddItemToArray(cJSON *array, cJSON *item);$/;"	p	signature:(cJSON *array, cJSON *item)
+cJSON_AddItemToObject	util/cJSON.c	/^void cJSON_AddItemToObject(cJSON * object, const char *string,$/;"	f	signature:(cJSON * object, const char *string, cJSON * item)
+cJSON_AddItemToObject	util/cJSON.h	/^extern void cJSON_AddItemToObject(cJSON *object, const char *string, cJSON *item);$/;"	p	signature:(cJSON *object, const char *string, cJSON *item)
+cJSON_AddItemToObjectCS	util/cJSON.c	/^void cJSON_AddItemToObjectCS(cJSON * object, const char *string,$/;"	f	signature:(cJSON * object, const char *string, cJSON * item)
+cJSON_AddItemToObjectCS	util/cJSON.h	/^extern void cJSON_AddItemToObjectCS(cJSON * object, const char *string, cJSON *item);$/;"	p	signature:(cJSON * object, const char *string, cJSON *item)
+cJSON_AddNullToObject	util/cJSON.h	141;"	d
+cJSON_AddNumberToObject	util/cJSON.h	145;"	d
+cJSON_AddStringToObject	util/cJSON.h	146;"	d
+cJSON_AddTrueToObject	util/cJSON.h	142;"	d
+cJSON_Array	util/cJSON.h	36;"	d
+cJSON_CreateArray	util/cJSON.c	/^cJSON *cJSON_CreateArray(void)$/;"	f	signature:(void)
+cJSON_CreateArray	util/cJSON.h	/^extern cJSON *cJSON_CreateArray(void);$/;"	p	signature:(void)
+cJSON_CreateBool	util/cJSON.c	/^cJSON *cJSON_CreateBool(int b)$/;"	f	signature:(int b)
+cJSON_CreateBool	util/cJSON.h	/^extern cJSON *cJSON_CreateBool(int b);$/;"	p	signature:(int b)
+cJSON_CreateDoubleArray	util/cJSON.c	/^cJSON *cJSON_CreateDoubleArray(const double *numbers, int count)$/;"	f	signature:(const double *numbers, int count)
+cJSON_CreateDoubleArray	util/cJSON.h	/^extern cJSON *cJSON_CreateDoubleArray(const double *numbers, int count);$/;"	p	signature:(const double *numbers, int count)
+cJSON_CreateFalse	util/cJSON.c	/^cJSON *cJSON_CreateFalse(void)$/;"	f	signature:(void)
+cJSON_CreateFalse	util/cJSON.h	/^extern cJSON *cJSON_CreateFalse(void);$/;"	p	signature:(void)
+cJSON_CreateFloatArray	util/cJSON.c	/^cJSON *cJSON_CreateFloatArray(const float *numbers, int count)$/;"	f	signature:(const float *numbers, int count)
+cJSON_CreateFloatArray	util/cJSON.h	/^extern cJSON *cJSON_CreateFloatArray(const float *numbers, int count);$/;"	p	signature:(const float *numbers, int count)
+cJSON_CreateIntArray	util/cJSON.c	/^cJSON *cJSON_CreateIntArray(const int *numbers, int count)$/;"	f	signature:(const int *numbers, int count)
+cJSON_CreateIntArray	util/cJSON.h	/^extern cJSON *cJSON_CreateIntArray(const int *numbers, int count);$/;"	p	signature:(const int *numbers, int count)
+cJSON_CreateNull	util/cJSON.c	/^cJSON *cJSON_CreateNull(void)$/;"	f	signature:(void)
+cJSON_CreateNull	util/cJSON.h	/^extern cJSON *cJSON_CreateNull(void);$/;"	p	signature:(void)
+cJSON_CreateNumber	util/cJSON.c	/^cJSON *cJSON_CreateNumber(double num)$/;"	f	signature:(double num)
+cJSON_CreateNumber	util/cJSON.h	/^extern cJSON *cJSON_CreateNumber(double num);$/;"	p	signature:(double num)
+cJSON_CreateObject	util/cJSON.c	/^cJSON *cJSON_CreateObject(void)$/;"	f	signature:(void)
+cJSON_CreateObject	util/cJSON.h	/^extern cJSON *cJSON_CreateObject(void);$/;"	p	signature:(void)
+cJSON_CreateString	util/cJSON.c	/^cJSON *cJSON_CreateString(const char *string)$/;"	f	signature:(const char *string)
+cJSON_CreateString	util/cJSON.h	/^extern cJSON *cJSON_CreateString(const char *string);$/;"	p	signature:(const char *string)
+cJSON_CreateStringArray	util/cJSON.c	/^cJSON *cJSON_CreateStringArray(const char **strings, int count)$/;"	f	signature:(const char **strings, int count)
+cJSON_CreateStringArray	util/cJSON.h	/^extern cJSON *cJSON_CreateStringArray(const char **strings, int count);$/;"	p	signature:(const char **strings, int count)
+cJSON_CreateTrue	util/cJSON.c	/^cJSON *cJSON_CreateTrue(void)$/;"	f	signature:(void)
+cJSON_CreateTrue	util/cJSON.h	/^extern cJSON *cJSON_CreateTrue(void);$/;"	p	signature:(void)
+cJSON_Delete	util/cJSON.c	/^void cJSON_Delete(cJSON * c)$/;"	f	signature:(cJSON * c)
+cJSON_Delete	util/cJSON.h	/^extern void cJSON_Delete(cJSON *c);$/;"	p	signature:(cJSON *c)
+cJSON_DeleteItemFromArray	util/cJSON.c	/^void cJSON_DeleteItemFromArray(cJSON * array, int which)$/;"	f	signature:(cJSON * array, int which)
+cJSON_DeleteItemFromArray	util/cJSON.h	/^extern void cJSON_DeleteItemFromArray(cJSON *array, int which);$/;"	p	signature:(cJSON *array, int which)
+cJSON_DeleteItemFromObject	util/cJSON.c	/^void cJSON_DeleteItemFromObject(cJSON * object, const char *string)$/;"	f	signature:(cJSON * object, const char *string)
+cJSON_DeleteItemFromObject	util/cJSON.h	/^extern void cJSON_DeleteItemFromObject(cJSON *object, const char *string);$/;"	p	signature:(cJSON *object, const char *string)
+cJSON_DetachItemFromArray	util/cJSON.c	/^cJSON *cJSON_DetachItemFromArray(cJSON * array, int which)$/;"	f	signature:(cJSON * array, int which)
+cJSON_DetachItemFromArray	util/cJSON.h	/^extern cJSON *cJSON_DetachItemFromArray(cJSON *array, int which);$/;"	p	signature:(cJSON *array, int which)
+cJSON_DetachItemFromObject	util/cJSON.c	/^cJSON *cJSON_DetachItemFromObject(cJSON * object, const char *string)$/;"	f	signature:(cJSON * object, const char *string)
+cJSON_DetachItemFromObject	util/cJSON.h	/^extern cJSON *cJSON_DetachItemFromObject(cJSON *object, const char *string);$/;"	p	signature:(cJSON *object, const char *string)
+cJSON_Duplicate	util/cJSON.c	/^cJSON *cJSON_Duplicate(cJSON * item, int recurse)$/;"	f	signature:(cJSON * item, int recurse)
+cJSON_Duplicate	util/cJSON.h	/^extern cJSON *cJSON_Duplicate(cJSON *item, int recurse);$/;"	p	signature:(cJSON *item, int recurse)
+cJSON_False	util/cJSON.h	31;"	d
+cJSON_GetArrayItem	util/cJSON.c	/^cJSON *cJSON_GetArrayItem(cJSON * array, int item)$/;"	f	signature:(cJSON * array, int item)
+cJSON_GetArrayItem	util/cJSON.h	/^extern cJSON *cJSON_GetArrayItem(cJSON *array, int item);$/;"	p	signature:(cJSON *array, int item)
+cJSON_GetArraySize	util/cJSON.c	/^int cJSON_GetArraySize(cJSON * array)$/;"	f	signature:(cJSON * array)
+cJSON_GetArraySize	util/cJSON.h	/^extern int cJSON_GetArraySize(cJSON *array);$/;"	p	signature:(cJSON *array)
+cJSON_GetErrorPtr	util/cJSON.c	/^const char *cJSON_GetErrorPtr(void)$/;"	f	signature:(void)
+cJSON_GetErrorPtr	util/cJSON.h	/^extern const char *cJSON_GetErrorPtr(void);$/;"	p	signature:(void)
+cJSON_GetObjectItem	util/cJSON.c	/^cJSON *cJSON_GetObjectItem(cJSON * object, const char *string)$/;"	f	signature:(cJSON * object, const char *string)
+cJSON_GetObjectItem	util/cJSON.h	/^extern cJSON *cJSON_GetObjectItem(cJSON *object, const char *string);$/;"	p	signature:(cJSON *object, const char *string)
+cJSON_Hooks	util/cJSON.h	/^typedef struct cJSON_Hooks {$/;"	s
+cJSON_Hooks	util/cJSON.h	/^} cJSON_Hooks;$/;"	t	typeref:struct:cJSON_Hooks
+cJSON_Hooks::free_fn	util/cJSON.h	/^    void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks	access:public
+cJSON_Hooks::malloc_fn	util/cJSON.h	/^    void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks	access:public
+cJSON_InitHooks	util/cJSON.c	/^void cJSON_InitHooks(cJSON_Hooks * hooks)$/;"	f	signature:(cJSON_Hooks * hooks)
+cJSON_InitHooks	util/cJSON.h	/^extern void cJSON_InitHooks(cJSON_Hooks *hooks);$/;"	p	signature:(cJSON_Hooks *hooks)
+cJSON_InsertItemInArray	util/cJSON.c	/^void cJSON_InsertItemInArray(cJSON * array, int which, cJSON * newitem)$/;"	f	signature:(cJSON * array, int which, cJSON * newitem)
+cJSON_InsertItemInArray	util/cJSON.h	/^extern void cJSON_InsertItemInArray(cJSON *array, int which, cJSON *newitem);	\/* Shifts pre-existing items to the right. *\/$/;"	p	signature:(cJSON *array, int which, cJSON *newitem)
+cJSON_IsReference	util/cJSON.h	39;"	d
+cJSON_Minify	util/cJSON.c	/^void cJSON_Minify(char *json)$/;"	f	signature:(char *json)
+cJSON_Minify	util/cJSON.h	/^extern void cJSON_Minify(char *json);$/;"	p	signature:(char *json)
+cJSON_NULL	util/cJSON.h	33;"	d
+cJSON_New_Item	util/cJSON.c	/^static cJSON *cJSON_New_Item(void)$/;"	f	file:	signature:(void)
+cJSON_Number	util/cJSON.h	34;"	d
+cJSON_Object	util/cJSON.h	37;"	d
+cJSON_Parse	util/cJSON.c	/^cJSON *cJSON_Parse(const char *value)$/;"	f	signature:(const char *value)
+cJSON_Parse	util/cJSON.h	/^extern cJSON *cJSON_Parse(const char *value);$/;"	p	signature:(const char *value)
+cJSON_ParseWithOpts	util/cJSON.c	/^cJSON *cJSON_ParseWithOpts(const char *value,$/;"	f	signature:(const char *value, const char **return_parse_end, int require_null_terminated)
+cJSON_ParseWithOpts	util/cJSON.h	/^extern cJSON *cJSON_ParseWithOpts(const char *value, const char **return_parse_end, int require_null_terminated);$/;"	p	signature:(const char *value, const char **return_parse_end, int require_null_terminated)
+cJSON_Print	util/cJSON.c	/^char *cJSON_Print(cJSON * item)$/;"	f	signature:(cJSON * item)
+cJSON_Print	util/cJSON.h	/^extern char *cJSON_Print(cJSON *item);$/;"	p	signature:(cJSON *item)
+cJSON_PrintBuffered	util/cJSON.c	/^char *cJSON_PrintBuffered(cJSON * item, int prebuffer, int fmt)$/;"	f	signature:(cJSON * item, int prebuffer, int fmt)
+cJSON_PrintBuffered	util/cJSON.h	/^extern char *cJSON_PrintBuffered(cJSON *item, int prebuffer, int fmt);$/;"	p	signature:(cJSON *item, int prebuffer, int fmt)
+cJSON_PrintUnformatted	util/cJSON.c	/^char *cJSON_PrintUnformatted(cJSON * item)$/;"	f	signature:(cJSON * item)
+cJSON_PrintUnformatted	util/cJSON.h	/^extern char *cJSON_PrintUnformatted(cJSON *item);$/;"	p	signature:(cJSON *item)
+cJSON_ReplaceItemInArray	util/cJSON.c	/^void cJSON_ReplaceItemInArray(cJSON * array, int which, cJSON * newitem)$/;"	f	signature:(cJSON * array, int which, cJSON * newitem)
+cJSON_ReplaceItemInArray	util/cJSON.h	/^extern void cJSON_ReplaceItemInArray(cJSON *array, int which, cJSON *newitem);$/;"	p	signature:(cJSON *array, int which, cJSON *newitem)
+cJSON_ReplaceItemInObject	util/cJSON.c	/^void cJSON_ReplaceItemInObject(cJSON * object, const char *string,$/;"	f	signature:(cJSON * object, const char *string, cJSON * newitem)
+cJSON_ReplaceItemInObject	util/cJSON.h	/^extern void cJSON_ReplaceItemInObject(cJSON *object, const char *string, cJSON *newitem);$/;"	p	signature:(cJSON *object, const char *string, cJSON *newitem)
+cJSON_SetIntValue	util/cJSON.h	149;"	d
+cJSON_SetNumberValue	util/cJSON.h	150;"	d
+cJSON_String	util/cJSON.h	35;"	d
+cJSON_StringIsConst	util/cJSON.h	40;"	d
+cJSON_True	util/cJSON.h	32;"	d
+cJSON__h	util/cJSON.h	24;"	d
+cJSON_free	util/cJSON.c	/^static void (*cJSON_free) (void *ptr) = free;$/;"	v	file:
+cJSON_malloc	util/cJSON.c	/^static void *(*cJSON_malloc) (size_t sz) = malloc;$/;"	v	file:
+cJSON_strcasecmp	util/cJSON.c	/^static int cJSON_strcasecmp(const char *s1, const char *s2)$/;"	f	file:	signature:(const char *s1, const char *s2)
+cJSON_strdup	util/cJSON.c	/^static char *cJSON_strdup(const char *str)$/;"	f	file:	signature:(const char *str)
+child	util/cJSON.h	/^    struct cJSON *child;	\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON	access:public
+control_start	control/ttms_control.c	/^void control_start(void)$/;"	f	signature:(void)
+control_start	control/ttms_control.h	/^void control_start(void);$/;"	p	signature:(void)
+country	model/mngmnt_info.h	/^    char country[MAX_COUNTRY+1];          \/\/ 国家$/;"	m	struct:movie_info	access:public
+create_origin_data	model/list_crud.c	/^void create_origin_data(void)$/;"	f	signature:(void)
+create_origin_data	model/list_crud.h	/^void create_origin_data(void);$/;"	p	signature:(void)
+create_reference	util/cJSON.c	/^static cJSON *create_reference(cJSON * item)$/;"	f	file:	signature:(cJSON * item)
+del_action_cutting_by_id	model/list_crud.c	/^void del_action_cutting_by_id(int id)$/;"	f	signature:(int id)
+del_action_cutting_by_id	model/list_crud.h	/^void del_action_cutting_by_id(int id);$/;"	p	signature:(int id)
+del_movie_info_by_id	model/list_crud.c	/^void del_movie_info_by_id(int id)$/;"	f	signature:(int id)
+del_movie_info_by_id	model/list_crud.h	/^void del_movie_info_by_id(int id);$/;"	p	signature:(int id)
+del_playhouse_by_id	model/list_crud.c	/^void del_playhouse_by_id(int id)$/;"	f	signature:(int id)
+del_playhouse_by_id	model/list_crud.h	/^void del_playhouse_by_id(int id);$/;"	p	signature:(int id)
+del_user_info_by_name	model/list_crud.c	/^void del_user_info_by_name(const char *name)$/;"	f	signature:(const char *name)
+del_user_info_by_name	model/list_crud.h	/^void del_user_info_by_name(const char *name);$/;"	p	signature:(const char *name)
+desc	model/mngmnt_info.h	/^    char desc[MAX_MOVIE_DESC+1];          \/\/ 描述$/;"	m	struct:movie_info	access:public
+director	model/mngmnt_info.h	/^    char director[MAX_DIRECTOR+1];        \/\/ 导演$/;"	m	struct:movie_info	access:public
+duration	model/mngmnt_info.h	/^    int duration;                         \/\/ 时长(min)$/;"	m	struct:movie_info	access:public
+ensure	util/cJSON.c	/^static char *ensure(printbuffer * p, int needed)$/;"	f	file:	signature:(printbuffer * p, int needed)
+ep	util/cJSON.c	/^static const char *ep;$/;"	v	file:
+fare	model/mngmnt_info.h	/^    int fare;                        \/\/ 票价$/;"	m	struct:action_cutting	access:public
+firstByteMark	util/cJSON.c	/^static const unsigned char firstByteMark[7] =$/;"	v	file:
+for_range_action_cutting	model/list_crud.c	/^void for_range_action_cutting(void (*func)(action_cutting *))$/;"	f	signature:(void (*func)(action_cutting *))
+for_range_action_cutting	model/list_crud.h	/^void for_range_action_cutting(void (*func)(action_cutting *));$/;"	p	signature:(void (*func)(action_cutting *))
+for_range_movie_info	model/list_crud.c	/^void for_range_movie_info(void (*func)(movie_info *))$/;"	f	signature:(void (*func)(movie_info *))
+for_range_movie_info	model/list_crud.h	/^void for_range_movie_info(void (*func)(movie_info *));$/;"	p	signature:(void (*func)(movie_info *))
+for_range_playhouse	model/list_crud.c	/^void for_range_playhouse(void (*func)(playhouse *))$/;"	f	signature:(void (*func)(playhouse *))
+for_range_playhouse	model/list_crud.h	/^void for_range_playhouse(void (*func)(playhouse *));$/;"	p	signature:(void (*func)(playhouse *))
+for_range_user_info	model/list_crud.c	/^void for_range_user_info(void (*func)(user_info *))$/;"	f	signature:(void (*func)(user_info *))
+for_range_user_info	model/list_crud.h	/^void for_range_user_info(void (*func)(user_info *));$/;"	p	signature:(void (*func)(user_info *))
+free_fn	util/cJSON.h	/^    void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks	access:public
+id	model/mngmnt_info.h	/^    int id;                               \/\/ 剧目编号$/;"	m	struct:movie_info	access:public
+id	model/mngmnt_info.h	/^    int id;                          \/\/ 场次 id$/;"	m	struct:action_cutting	access:public
+id	model/mngmnt_info.h	/^    int id;                     \/\/ 剧场编号$/;"	m	struct:playhouse	access:public
+language	model/mngmnt_info.h	/^    char language[MAX_LANGUAGE+1];        \/\/ 语言$/;"	m	struct:movie_info	access:public
+length	util/cJSON.c	/^    int length;$/;"	m	struct:__anon1	file:	access:public
+list	model/mngmnt_info.h	/^    struct list_head list;                \/\/ 链表结构$/;"	m	struct:movie_info	typeref:struct:movie_info::list_head	access:public
+list	model/mngmnt_info.h	/^    struct list_head list;            \/\/ 链表结构$/;"	m	struct:user_info	typeref:struct:user_info::list_head	access:public
+list	model/mngmnt_info.h	/^    struct list_head list;           \/\/ 链表结构$/;"	m	struct:action_cutting	typeref:struct:action_cutting::list_head	access:public
+list	model/mngmnt_info.h	/^    struct list_head list;      \/\/ 链表结构$/;"	m	struct:playhouse	typeref:struct:playhouse::list_head	access:public
+list_add	util/list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f	signature:(struct list_head *new, struct list_head *head)
+list_add_tail	util/list.h	/^static inline void list_add_tail(struct list_head *new, struct list_head *head)$/;"	f	signature:(struct list_head *new, struct list_head *head)
+list_cut_position	util/list.h	/^static inline void list_cut_position(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head, struct list_head *entry)
+list_del	util/list.h	/^static inline void list_del(struct list_head *entry)$/;"	f	signature:(struct list_head *entry)
+list_del_init	util/list.h	/^static inline void list_del_init(struct list_head *entry)$/;"	f	signature:(struct list_head *entry)
+list_empty	util/list.h	/^static inline int list_empty(const struct list_head *head)$/;"	f	signature:(const struct list_head *head)
+list_empty_careful	util/list.h	/^static inline int list_empty_careful(const struct list_head *head)$/;"	f	signature:(const struct list_head *head)
+list_entry	util/list.h	25;"	d
+list_first_entry	util/list.h	198;"	d
+list_for_each	util/list.h	201;"	d
+list_for_each_entry	util/list.h	216;"	d
+list_for_each_entry_reverse	util/list.h	221;"	d
+list_for_each_entry_reverse_safe	util/list.h	232;"	d
+list_for_each_entry_safe	util/list.h	226;"	d
+list_for_each_prev	util/list.h	204;"	d
+list_for_each_prev_safe	util/list.h	211;"	d
+list_for_each_safe	util/list.h	207;"	d
+list_head	util/list.h	/^struct list_head {$/;"	s
+list_head::next	util/list.h	/^    struct list_head *next, *prev;$/;"	m	struct:list_head	typeref:struct:list_head::list_head	access:public
+list_head::prev	util/list.h	/^    struct list_head *next, *prev;$/;"	m	struct:list_head	typeref:struct:list_head::	access:public
+list_is_last	util/list.h	/^static inline int list_is_last(const struct list_head *list,$/;"	f	signature:(const struct list_head *list, const struct list_head *head)
+list_is_singular	util/list.h	/^static inline int list_is_singular(const struct list_head *head)$/;"	f	signature:(const struct list_head *head)
+list_move	util/list.h	/^static inline void list_move(struct list_head *list, struct list_head *head)$/;"	f	signature:(struct list_head *list, struct list_head *head)
+list_move_tail	util/list.h	/^static inline void list_move_tail(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head)
+list_replace	util/list.h	/^static inline void list_replace(struct list_head *old,$/;"	f	signature:(struct list_head *old, struct list_head *new)
+list_replace_init	util/list.h	/^static inline void list_replace_init(struct list_head *old,$/;"	f	signature:(struct list_head *old, struct list_head *new)
+list_splice	util/list.h	/^static inline void list_splice(const struct list_head *list,$/;"	f	signature:(const struct list_head *list, struct list_head *head)
+list_splice_init	util/list.h	/^static inline void list_splice_init(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head)
+list_splice_tail	util/list.h	/^static inline void list_splice_tail(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head)
+list_splice_tail_init	util/list.h	/^static inline void list_splice_tail_init(struct list_head *list,$/;"	f	signature:(struct list_head *list, struct list_head *head)
+load_all_info	model/serialize.c	/^int load_all_info(void)$/;"	f	signature:(void)
+load_all_info	model/serialize.h	/^int load_all_info(void);$/;"	p	signature:(void)
+log_debug	util/logger.h	64;"	d
+log_debug	util/logger.h	67;"	d
+log_error	util/logger.h	88;"	d
+log_fatal	util/logger.h	95;"	d
+log_free	util/logger.h	54;"	d
+log_info	util/logger.h	74;"	d
+log_init	util/logger.h	45;"	d
+log_warn	util/logger.h	81;"	d
+main	ttms/main.c	/^int main(void)$/;"	f	signature:(void)
+malloc_fn	util/cJSON.h	/^    void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks	access:public
+movie_id	model/mngmnt_info.h	/^    int movie_id;                    \/\/ 播放的电影 id$/;"	m	struct:action_cutting	access:public
+movie_info	model/mngmnt_info.h	/^struct movie_info {$/;"	s
+movie_info	model/mngmnt_info.h	/^} movie_info;$/;"	t	typeref:struct:movie_info
+movie_info::country	model/mngmnt_info.h	/^    char country[MAX_COUNTRY+1];          \/\/ 国家$/;"	m	struct:movie_info	access:public
+movie_info::desc	model/mngmnt_info.h	/^    char desc[MAX_MOVIE_DESC+1];          \/\/ 描述$/;"	m	struct:movie_info	access:public
+movie_info::director	model/mngmnt_info.h	/^    char director[MAX_DIRECTOR+1];        \/\/ 导演$/;"	m	struct:movie_info	access:public
+movie_info::duration	model/mngmnt_info.h	/^    int duration;                         \/\/ 时长(min)$/;"	m	struct:movie_info	access:public
+movie_info::id	model/mngmnt_info.h	/^    int id;                               \/\/ 剧目编号$/;"	m	struct:movie_info	access:public
+movie_info::language	model/mngmnt_info.h	/^    char language[MAX_LANGUAGE+1];        \/\/ 语言$/;"	m	struct:movie_info	access:public
+movie_info::list	model/mngmnt_info.h	/^    struct list_head list;                \/\/ 链表结构$/;"	m	struct:movie_info	typeref:struct:movie_info::list_head	access:public
+movie_info::name	model/mngmnt_info.h	/^    char name[MAX_MOVIE_NAME+1];          \/\/ 片名$/;"	m	struct:movie_info	access:public
+movie_info::release_time	model/mngmnt_info.h	/^    char release_time[MAX_TIME+1];        \/\/ 上映时间$/;"	m	struct:movie_info	access:public
+movie_list_head	model/list_crud.c	/^struct list_head movie_list_head = LIST_HEAD_INIT(movie_list_head);$/;"	v	typeref:struct:list_head
+name	model/mngmnt_info.h	/^    char name[MAX_MOVIE_NAME+1];          \/\/ 片名$/;"	m	struct:movie_info	access:public
+next	util/cJSON.h	/^    struct cJSON *next, *prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON	access:public
+next	util/list.h	/^    struct list_head *next, *prev;$/;"	m	struct:list_head	typeref:struct:list_head::list_head	access:public
+offset	util/cJSON.c	/^    int offset;$/;"	m	struct:__anon1	file:	access:public
+parse_array	util/cJSON.c	/^static const char *parse_array(cJSON * item, const char *value)$/;"	f	file:	signature:(cJSON * item, const char *value)
+parse_array	util/cJSON.c	/^static const char *parse_array(cJSON * item, const char *value);$/;"	p	file:	signature:(cJSON * item, const char *value)
+parse_hex4	util/cJSON.c	/^static unsigned parse_hex4(const char *str)$/;"	f	file:	signature:(const char *str)
+parse_number	util/cJSON.c	/^static const char *parse_number(cJSON * item, const char *num)$/;"	f	file:	signature:(cJSON * item, const char *num)
+parse_object	util/cJSON.c	/^static const char *parse_object(cJSON * item, const char *value)$/;"	f	file:	signature:(cJSON * item, const char *value)
+parse_object	util/cJSON.c	/^static const char *parse_object(cJSON * item, const char *value);$/;"	p	file:	signature:(cJSON * item, const char *value)
+parse_string	util/cJSON.c	/^static const char *parse_string(cJSON * item, const char *str)$/;"	f	file:	signature:(cJSON * item, const char *str)
+parse_value	util/cJSON.c	/^static const char *parse_value(cJSON * item, const char *value)$/;"	f	file:	signature:(cJSON * item, const char *value)
+parse_value	util/cJSON.c	/^static const char *parse_value(cJSON * item, const char *value);$/;"	p	file:	signature:(cJSON * item, const char *value)
+password	model/mngmnt_info.h	/^    char password[MAX_PASSWORD+1];    \/\/ 密码$/;"	m	struct:user_info	access:public
+playhouse	model/mngmnt_info.h	/^struct playhouse {$/;"	s
+playhouse	model/mngmnt_info.h	/^} playhouse;$/;"	t	typeref:struct:playhouse
+playhouse::id	model/mngmnt_info.h	/^    int id;                     \/\/ 剧场编号$/;"	m	struct:playhouse	access:public
+playhouse::list	model/mngmnt_info.h	/^    struct list_head list;      \/\/ 链表结构$/;"	m	struct:playhouse	typeref:struct:playhouse::list_head	access:public
+playhouse::seat_count	model/mngmnt_info.h	/^    int seat_count;             \/\/ 座位数$/;"	m	struct:playhouse	access:public
+playhouse_id	model/mngmnt_info.h	/^    int playhouse_id;                \/\/ 放映厅 id$/;"	m	struct:action_cutting	access:public
+playhouse_list_head	model/list_crud.c	/^struct list_head playhouse_list_head = LIST_HEAD_INIT(playhouse_list_head);$/;"	v	typeref:struct:list_head
+pow2gt	util/cJSON.c	/^static int pow2gt(int x)$/;"	f	file:	signature:(int x)
+prev	util/cJSON.h	/^    struct cJSON *next, *prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::	access:public
+prev	util/list.h	/^    struct list_head *next, *prev;$/;"	m	struct:list_head	typeref:struct:list_head::	access:public
+print_array	util/cJSON.c	/^static char *print_array(cJSON * item, int depth, int fmt, printbuffer * p)$/;"	f	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+print_array	util/cJSON.c	/^static char *print_array(cJSON * item, int depth, int fmt,$/;"	p	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+print_number	util/cJSON.c	/^static char *print_number(cJSON * item, printbuffer * p)$/;"	f	file:	signature:(cJSON * item, printbuffer * p)
+print_object	util/cJSON.c	/^static char *print_object(cJSON * item, int depth, int fmt,$/;"	f	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+print_object	util/cJSON.c	/^static char *print_object(cJSON * item, int depth, int fmt,$/;"	p	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+print_string	util/cJSON.c	/^static char *print_string(cJSON * item, printbuffer * p)$/;"	f	file:	signature:(cJSON * item, printbuffer * p)
+print_string_ptr	util/cJSON.c	/^static char *print_string_ptr(const char *str, printbuffer * p)$/;"	f	file:	signature:(const char *str, printbuffer * p)
+print_value	util/cJSON.c	/^static char *print_value(cJSON * item, int depth, int fmt, printbuffer * p)$/;"	f	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+print_value	util/cJSON.c	/^static char *print_value(cJSON * item, int depth, int fmt,$/;"	p	file:	signature:(cJSON * item, int depth, int fmt, printbuffer * p)
+printbuffer	util/cJSON.c	/^} printbuffer;$/;"	t	typeref:struct:__anon1	file:
+release_time	model/mngmnt_info.h	/^    char release_time[MAX_TIME+1];        \/\/ 上映时间$/;"	m	struct:movie_info	access:public
+remaining_seat	model/mngmnt_info.h	/^    int remaining_seat;              \/\/ 剩余数量$/;"	m	struct:action_cutting	access:public
+save_all_info	model/serialize.c	/^int save_all_info(void)$/;"	f	signature:(void)
+save_all_info	model/serialize.h	/^int save_all_info(void);$/;"	p	signature:(void)
+seat_count	model/mngmnt_info.h	/^    int seat_count;                  \/\/ 总出售票数$/;"	m	struct:action_cutting	access:public
+seat_count	model/mngmnt_info.h	/^    int seat_count;             \/\/ 座位数$/;"	m	struct:playhouse	access:public
+show_login_menu	view/ttms_menu.c	/^void show_login_menu(void)$/;"	f	signature:(void)
+show_login_menu	view/ttms_menu.h	/^void show_login_menu(void);$/;"	p	signature:(void)
+skip	util/cJSON.c	/^static const char *skip(const char *in)$/;"	f	file:	signature:(const char *in)
+start_time	model/mngmnt_info.h	/^    char start_time[MAX_TIME+1];     \/\/ 开始时间$/;"	m	struct:action_cutting	access:public
+string	util/cJSON.h	/^    char *string;		\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON	access:public
+suffix_object	util/cJSON.c	/^static void suffix_object(cJSON * prev, cJSON * item)$/;"	f	file:	signature:(cJSON * prev, cJSON * item)
+ttms_state	control/ttms_control.c	/^enum ttms_state {$/;"	g	file:
+ttms_state	control/ttms_control.c	/^} ttms_state;$/;"	t	typeref:enum:ttms_state	file:
+type	model/mngmnt_info.h	/^    user_type type;                   \/\/ 用户类型$/;"	m	struct:user_info	access:public
+type	util/cJSON.h	/^    int type;		\/* The type of the item, as above. *\/$/;"	m	struct:cJSON	access:public
+update	util/cJSON.c	/^static int update(printbuffer * p)$/;"	f	file:	signature:(printbuffer * p)
+user_info	model/mngmnt_info.h	/^struct user_info {$/;"	s
+user_info	model/mngmnt_info.h	/^} user_info;$/;"	t	typeref:struct:user_info
+user_info::list	model/mngmnt_info.h	/^    struct list_head list;            \/\/ 链表结构$/;"	m	struct:user_info	typeref:struct:user_info::list_head	access:public
+user_info::password	model/mngmnt_info.h	/^    char password[MAX_PASSWORD+1];    \/\/ 密码$/;"	m	struct:user_info	access:public
+user_info::type	model/mngmnt_info.h	/^    user_type type;                   \/\/ 用户类型$/;"	m	struct:user_info	access:public
+user_info::username	model/mngmnt_info.h	/^    char username[MAX_USERNAME+1];    \/\/ 用户名$/;"	m	struct:user_info	access:public
+user_list_head	model/list_crud.c	/^struct list_head user_list_head = LIST_HEAD_INIT(user_list_head);$/;"	v	typeref:struct:list_head
+user_login	control/ttms_control.c	/^static int user_login(void)$/;"	f	file:	signature:(void)
+user_login	control/ttms_control.c	/^static int user_login(void);$/;"	p	file:	signature:(void)
+user_type	model/mngmnt_info.h	/^enum user_type {$/;"	g
+user_type	model/mngmnt_info.h	/^} user_type;$/;"	t	typeref:enum:user_type
+username	model/mngmnt_info.h	/^    char username[MAX_USERNAME+1];    \/\/ 用户名$/;"	m	struct:user_info	access:public
+valuedouble	util/cJSON.h	/^    double valuedouble;	\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON	access:public
+valueint	util/cJSON.h	/^    int valueint;		\/* The item's number, if type==cJSON_Number *\/$/;"	m	struct:cJSON	access:public
+valuestring	util/cJSON.h	/^    char *valuestring;	\/* The item's string, if type==cJSON_String *\/$/;"	m	struct:cJSON	access:public
