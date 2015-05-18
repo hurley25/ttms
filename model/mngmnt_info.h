@@ -48,6 +48,14 @@ struct user_info {
     struct list_head list;            // 链表结构
 } user_info;
 
+// 放映厅信息
+typedef
+struct playhouse {
+    int id;                     // 剧场编号
+    int seat_count;             // 座位数
+    struct list_head list;      // 链表结构
+} playhouse;
+
 #define MAX_MOVIE_NAME  (50)
 #define MAX_MOVIE_DESC  (200)
 #define MAX_TIME        (50)
@@ -69,21 +77,17 @@ struct movie_info {
     struct list_head list;                // 链表结构
 } movie_info;
 
-// 放映厅信息
-typedef
-struct playhouse {
-    int id;                     // 剧场编号
-    int seat_count;             // 座位数
-    struct list_head list;      // 链表结构
-} playhouse;
-
 // 演出场次信息
 typedef 
 struct action_cutting {
     int id;                          // 场次 id
     int movie_id;                    // 播放的电影 id
     int playhouse_id;                // 放映厅 id
+
     int fare;                        // 票价
+                                     // 真正的金融系统有时候为了避免浮点误差，都会对小数放大10000倍等比例
+                                     // 作为整数存储和计算，这里简单起见用整数算了，或者改为 double
+                                     
     int seat_count;                  // 总出售票数
     int remaining_seat;              // 剩余数量
     char start_time[MAX_TIME+1];     // 开始时间

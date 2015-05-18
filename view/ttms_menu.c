@@ -54,27 +54,22 @@ void show_user_menu(user_type type)
         case UT_ADMIN:
             printf("\t2. 用户管理\n");
             printf("\t3. 放映厅管理\n\n");
-            printf("\t1. 注销登陆\n");
-            printf("\t0. 退出系统\n\n");
             break;
         case UT_MANAGER:
-            printf("\t3. 放映厅管理\n");
-            printf("\t4. 影片管理\n");
-            printf("\t5. 剧目管理\n");
-            printf("\t6. 售票管理\n");
-            printf("\t7. 销售额查看\n\n");
-            printf("\t1. 注销登陆\n");
-            printf("\t0. 退出系统\n\n");
+            printf("\t2. 影片管理\n");
+            printf("\t3. 剧目管理\n");
+            printf("\t4. 售票管理\n");
+            printf("\t5. 销售额查看\n\n");
             break;
         case UT_CLERK:
-            printf("\t6. 售票管理\n\n");
-            printf("\t1. 注销登陆\n");
-            printf("\t0. 退出系统\n\n");
+            printf("\t2. 售票管理\n\n");
             break;
         case UT_ERROR:
         default:
             break;
     }
+    printf("\t1. 注销登陆\n");
+    printf("\t0. 退出系统\n\n");
 }
 
 // 显示用户管理菜单
@@ -131,8 +126,7 @@ void show_sale_mng_menu(void)
     __console_clear();
     SHOW_MENU_TOP
 
-    printf("\t1. 查看放映剧目列表\n");
-    printf("\t2. 售票\n");
+    printf("\t1. 售票\n\n");
     printf("\t0. 返回上级菜单\n\n");
 }
 

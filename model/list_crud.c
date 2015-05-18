@@ -256,3 +256,32 @@ user_type check_user_password(const char *username, const char *password)
     return UT_ERROR;
 }
 
+// 售票
+int sale_action_cutting_by_id_count(int id, int count)
+{
+    action_cutting *ac_node = NULL;
+    action_cutting *ac_node_next = NULL;
+    list_for_each_entry_safe(ac_node, ac_node_next, &action_cutting_list_head, list) {
+        if (ac_node->id == id && ac_node->remaining_seat >= count) {
+            ac_node->remaining_seat -= count;
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
+// 返回目前的销售额
+int get_sales_volume(void)
+{
+    int sales_volume = 0;
+
+    action_cutting *ac_node = NULL;
+    action_cutting *ac_node_next = NULL;
+    list_for_each_entry_safe(ac_node, ac_node_next, &action_cutting_list_head, list) {
+        sales_volume += (ac_node->seat_count - ac_node->remaining_seat) * ac_node->fare;
+    }
+
+    return sales_volume;
+}
+

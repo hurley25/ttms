@@ -90,5 +90,11 @@ void create_origin_data(void);
 // 检查用户密码
 user_type check_user_password(const char *username, const char *password);
 
+// 售票
+int sale_action_cutting_by_id_count(int id, int count);
+
+// 返回目前的销售额
+int get_sales_volume(void);
+
 #endif  // MODEL_INFO_LIST_H
 

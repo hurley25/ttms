@@ -1,0 +1,98 @@
+{
+	"user":	[{
+			"type":	1,
+			"username":	"admin",
+			"password":	"111"
+		}, {
+			"type":	2,
+			"username":	"manager",
+			"password":	"222"
+		}, {
+			"type":	3,
+			"username":	"clerk",
+			"password":	"333"
+		}],
+	"playhouse":	[{
+			"id":	1,
+			"seat_count":	100
+		}, {
+			"id":	2,
+			"seat_count":	100
+		}, {
+			"id":	3,
+			"seat_count":	100
+		}, {
+			"id":	4,
+			"seat_count":	100
+		}],
+	"movie":	[{
+			"id":	1,
+			"name":	"复仇者联盟2(奥创纪元)",
+			"duration":	150,
+			"director":	"乔斯 韦登",
+			"language":	"英语",
+			"country":	"美国",
+			"release_time":	"2015年",
+			"desc":	"身经百战的超级英雄们产生了职业倦怠，已经卸下钢铁战甲的托尼斯塔克因此发明了奥创..."
+		}, {
+			"id":	2,
+			"name":	"速度与激情7",
+			"duration":	137,
+			"director":	"詹姆斯 温",
+			"language":	"英语",
+			"country":	"美国",
+			"release_time":	"2015年",
+			"desc":	"《速度与激情7》（Furious 7）是环球影业出品的一部赛车题材动作片，是《速度与激情》系列的第7部..."
+		}, {
+			"id":	3,
+			"name":	"超能陆战队",
+			"duration":	101,
+			"director":	"唐 霍尔",
+			"language":	"英语",
+			"country":	"美国",
+			"release_time":	"2015年",
+			"desc":	"故事设定在一个融合东西方文化（旧金山+东京）的虚构大都市旧京山（San Fransokyo）中，一名精通机器人的..."
+		}, {
+			"id":	4,
+			"name":	"狼图腾",
+			"duration":	116,
+			"director":	"让 雅克 阿诺",
+			"language":	"中文",
+			"country":	"中国/法国",
+			"release_time":	"2015年",
+			"desc":	"1967年，北京知青陈阵和杨克响应国家上山下乡的号召，从北京来到了内蒙古额仑大草原插队..."
+		}],
+	"action_cutting":	[{
+			"id":	1,
+			"movie_id":	1,
+			"playhouse_id":	1,
+			"fare":	50,
+			"seat_count":	100,
+			"remaining_seat":	100,
+			"start_time":	"09:10 AM"
+		}, {
+			"id":	2,
+			"movie_id":	2,
+			"playhouse_id":	2,
+			"fare":	60,
+			"seat_count":	100,
+			"remaining_seat":	100,
+			"start_time":	"11:00 AM"
+		}, {
+			"id":	3,
+			"movie_id":	3,
+			"playhouse_id":	3,
+			"fare":	70,
+			"seat_count":	100,
+			"remaining_seat":	100,
+			"start_time":	"03:00 PM"
+		}, {
+			"id":	4,
+			"movie_id":	4,
+			"playhouse_id":	4,
+			"fare":	80,
+			"seat_count":	100,
+			"remaining_seat":	100,
+			"start_time":	"05:30 PM"
+		}]
+}
