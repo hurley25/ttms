@@ -28,7 +28,7 @@
  * 注意scanf 并不会清除缓冲区里遗留的 \n
  * 如果紧接着 scanf 再调用 getchar，缓冲区里的 \n 会被 getchar 获取到
  * 所以在调用 getchar 之前需要清除缓冲区，否则无法实现按回车键继续
- * 另外，flush(stdin) 的做法也可以的，个别老版本的C函数库会有问题，这里的清理缓冲区可以通用。
+ * 另外，使用 fflush(stdin) 的做法也可以的，不过个别老版本的C函数库会有问题，这里的清理缓冲区可以通用。
  */
 static void __clear_input_buffer(void)
 {
