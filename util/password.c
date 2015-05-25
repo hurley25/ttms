@@ -7,7 +7,7 @@
  *
  * password.c -- password input
  *
- * Version: 1.0  2015年05月17日 20时30分14秒
+ * Version: 1.0  05/17/2015 20:06:44 AM
  *
  * Authors:
  *     Qianyi.lh (liuhuan), qianyi.lh@alibaba-inc.com
