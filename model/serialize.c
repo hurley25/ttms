@@ -332,7 +332,7 @@ static char *__read_file(const char *filename)
     size_t file_len;
     char *data;
 	
-	file = fopen(filename, "r");
+    file = fopen(filename, "r");
     if (file == NULL) {
         log_error("Open File %s Error: %s", filename, strerror(errno));
         return NULL;
@@ -366,7 +366,7 @@ static int __write_file(const char *filename, const char *data, size_t length)
 {
     FILE *file;
 	
-	file = fopen(filename, "w");
+    file = fopen(filename, "w");
     if (file == NULL) {
         log_error("Open File %s Error: %s", filename, strerror(errno));
         return -1;
